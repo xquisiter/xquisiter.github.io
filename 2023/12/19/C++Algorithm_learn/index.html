@@ -327,12 +327,92 @@
     
       <div id="post-toc">
         <span class="post-toc-title">文章目录</span>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">一、基本数据结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95"><span class="toc-text">二、常见算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81C-%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA"><span class="toc-text">三、C++项目构建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85"><span class="toc-text">C++编译环境安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CMake%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">CMake使用方法</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">一、基本数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-text">二叉树</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95"><span class="toc-text">二、常见算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86"><span class="toc-text">二叉树遍历</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81C-%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA"><span class="toc-text">三、C++项目构建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85"><span class="toc-text">C++编译环境安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CMake%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">CMake使用方法</span></a></li></ol></li></ol>
       </div>
     
 
-    <h1 id="一、基本数据结构"><a href="#一、基本数据结构" class="headerlink" title="一、基本数据结构"></a>一、基本数据结构</h1><h1 id="二、常见算法"><a href="#二、常见算法" class="headerlink" title="二、常见算法"></a>二、常见算法</h1><pre><code class="C++">cout &lt;&lt; &quot;Hello World&quot;     // 输出流
+    <h1 id="一、基本数据结构"><a href="#一、基本数据结构" class="headerlink" title="一、基本数据结构"></a>一、基本数据结构</h1><h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><h1 id="二、常见算法"><a href="#二、常见算法" class="headerlink" title="二、常见算法"></a>二、常见算法</h1><h2 id="二叉树遍历"><a href="#二叉树遍历" class="headerlink" title="二叉树遍历"></a>二叉树遍历</h2><p><strong>二叉树遍历方式</strong>分为:<code>深度优先遍历</code>、<code>广度优先遍历</code></p>
+<p>深度优先遍历：</p>
+<ul>
+<li>前序遍历（递归法，迭代法）；遍历顺序：<strong>中</strong> 左 右</li>
+<li>中序遍历（递归法，迭代法）；遍历顺序：左 <strong>中</strong> 右</li>
+<li>后序遍历（递归法，迭代法）；遍历顺序：左 右 <strong>中</strong></li>
+</ul>
+<p>广度优先遍历：</p>
+<ul>
+<li>层次遍历（迭代法）</li>
+</ul>
+<hr>
+<p><strong>深度优先遍历-递归法</strong></p>
+<p>递归法一般构建思路：</p>
+<ul>
+<li>确定递归函数的参数与返回值。哪些参数是需要递归过程处理的，返回值的类型是什么</li>
+<li>确认递归终止条件。</li>
+<li>确定单层递归的逻辑。每一次递归要进行的操作</li>
+</ul>
+<p>此处以<code>前序遍历</code>为例，中序和后序遍历仅需改变处理逻辑部分的顺序。</p>
+<pre><code class="C++">class Solution &#123;
+public:
+    void pretravel(TreeNode*cur, vector&lt;int&gt; &amp; vec)&#123;
+        if(cur == NULL) return;
+        vec.push_back(cur-&gt;val);                   // 当前节点的数值导入
+        pretravel(cur-&gt;left,vec);                  // 查找左节点
+        pretravel(cur-&gt;right,vec);                 // 查找右节点
+    &#125;
+
+    vector&lt;int&gt; preorderTraversal(TreeNode* root) &#123;
+        vector&lt;int&gt; res;
+        pretravel(root, res);
+        return res;
+    &#125;
+&#125;;
 </code></pre>
+<hr>
+<p><strong>深度优先遍历-迭代法</strong></p>
+<p>借助<code>栈</code>实现，三种遍历方法不同。<br><strong>前序遍历</strong>: 先将根节点放入栈中，然后将右孩子加入栈，再加入左孩子。<br>因为栈是后进先处理，先放入右孩子，再放入左孩子。</p>
+<pre><code class="C++">class Solution &#123;
+public:
+    vector&lt;int&gt; preorderTraversal(TreeNode* root) &#123;
+        vector&lt;int&gt; res;
+        stack&lt;TreeNode*&gt; st;
+        st.push(root);
+        if(root == NULL) return res;
+        while(!st.empty())&#123;
+            TreeNode* cur = st.top();                         // 中节点
+            st.pop();
+            res.push_back(cur-&gt;val);
+            if(cur-&gt;right != NULL) st.push(cur-&gt;right);       // 右节点
+            if(cur-&gt;left != NULL) st.push(cur-&gt;left);         // 左节点
+        &#125;
+        return res;
+    &#125;
+&#125;;
+</code></pre>
+<p><strong>后序遍历</strong>: 可以按照中，左，右的顺序放入，然后反转最后的结果，代码参考前序遍历。</p>
+<p><strong>中序遍历</strong>：整个过程涉及两个操作，访问节点和处理节点，访问节点是遍历节点，处理节点是将元素放入res数组中。中序遍历两个过程是分开的，需要借助<code>指针</code>帮助访问节点，<code>栈</code>来帮助处理节点上的元素。</p>
+<pre><code class="C++">class Solution &#123;
+public:
+    vector&lt;int&gt; inorderTraversal(TreeNode* root) &#123;
+        vector&lt;int&gt; res;
+        stack&lt;TreeNode*&gt; st;
+        TreeNode* cur = root;                     // 指针记录当前位置
+        while(cur != NULL || !st.empty())&#123;
+            if(cur != NULL)&#123;
+                st.push(cur);                     // 如果当前位置不是空指针，放入栈
+                cur = cur-&gt;left;                  // 指针指向左孩子
+            &#125;else&#123;
+                cur = st.top();                   // 如果是空指针，处理栈顶元素
+                st.pop();
+                res.push_back(cur-&gt;val);
+                cur = cur-&gt;right;
+            &#125;
+        &#125;
+        return res;
+    &#125;
+&#125;;
+</code></pre>
+<hr>
+<p><strong>广度优先遍历</strong></p>
 <h1 id="三、C-项目构建"><a href="#三、C-项目构建" class="headerlink" title="三、C++项目构建"></a>三、C++项目构建</h1><h2 id="C-编译环境安装"><a href="#C-编译环境安装" class="headerlink" title="C++编译环境安装"></a>C++编译环境安装</h2><h2 id="CMake使用方法"><a href="#CMake使用方法" class="headerlink" title="CMake使用方法"></a>CMake使用方法</h2><p><strong>1、创建CMakeLists.txt文件</strong><br>在项目根目录文件夹下创建<code>CMakeLists.txt</code>的文件，并包含以下内容：</p>
 <pre><code class="text">cmake_minimum_required(VERSION 3.10)  // 指定CMake的最小版本要求
 
