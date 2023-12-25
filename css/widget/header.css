@@ -10,7 +10,7 @@
 .header .header-top {
   display: flex;
   height: 100px;
-  background: rgba(250, 151, 2, 0.98);
+  background: rgba(230, 96, 6, 0.98);
   z-index: 99;
   padding: 0 calc((100% - 1160px)/2);
 }
@@ -31,8 +31,8 @@
   align-items: center;
 }
 .header .header-top .h-left a img {
-  width: 36px;
-  height: 36px;
+  width: 60px;
+  height: 60px;
 }
 .header .header-top .h-right {
   display: flex;
