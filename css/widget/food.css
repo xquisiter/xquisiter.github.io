@@ -1,11 +1,13 @@
 .footer {
   display: flex;
+  background-color: #ffffff;
   padding: 0 calc((100% - 1160px)/2);
   height: 80px;
 }
 .footer .Copyright {
   display: flex;
   margin-left: 18px;
+  margin-top: 10px;
   color: #898fa0;
   font-size: 14px;
   flex-basis: 0;
@@ -16,6 +18,7 @@
 .footer .contact {
   display: flex;
   flex-basis: 0;
+  margin-top: 10px;
   justify-content: flex-end;
   align-items: center;
   flex-grow: 1;
