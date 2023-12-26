@@ -227,12 +227,14 @@
 }
 .footer {
   display: flex;
+  background-color: #ffffff;
   padding: 0 calc((100% - 1160px)/2);
   height: 80px;
 }
 .footer .Copyright {
   display: flex;
   margin-left: 18px;
+  margin-top: 10px;
   color: #898fa0;
   font-size: 14px;
   flex-basis: 0;
@@ -243,6 +245,7 @@
 .footer .contact {
   display: flex;
   flex-basis: 0;
+  margin-top: 10px;
   justify-content: flex-end;
   align-items: center;
   flex-grow: 1;
@@ -289,7 +292,7 @@
 .header .header-top {
   display: flex;
   height: 100px;
-  background: rgba(255, 255, 255, 0.98);
+  background: #f7f1da;
   z-index: 99;
   padding: 0 calc((100% - 1160px)/2);
 }
@@ -310,8 +313,8 @@
   align-items: center;
 }
 .header .header-top .h-left a img {
-  width: 36px;
-  height: 36px;
+  width: 50px;
+  height: 50px;
 }
 .header .header-top .h-right {
   display: flex;
@@ -333,7 +336,7 @@
   white-space: nowrap;
 }
 .header .header-top .h-right ul li a {
-  color: #898fa0;
+  color: #989fb8;
   text-decoration: none;
 }
 .header .header-top .h-right ul li a:hover {
@@ -349,7 +352,7 @@
   left: 2px;
 }
 .header .header-top .h-right .select a {
-  color: #12183A;
+  color: #101603;
 }
 .header .header-top .h-right .select .dot {
   display: inline-block;
@@ -397,7 +400,7 @@
   width: 100%;
   display: flex;
   flex-shrink: 0;
-  background: linear-gradient(to top, #f1f5fb, #f9fcff);
+  background: #fcf9f7;
   height: 466px;
 }
 .header-body-background-content {
@@ -427,8 +430,8 @@
   align-items: center;
 }
 .header-body-background-content span img {
-  width: 56px;
-  height: 56px;
+  width: 100px;
+  height: 100px;
 }
 .grouping {
   display: flex;
@@ -745,6 +748,7 @@ hue-6-2: #e6c07b
 .home .main {
   display: flex;
   flex-grow: 1;
+  background-color: #e8ebeb;
   flex-basis: auto;
   flex-direction: column;
   margin-top: 0px;
@@ -776,6 +780,14 @@ hue-6-2: #e6c07b
   -webkit-transition: top 0.5s;
   -o-transition: top 0.5s;
 }
+.home .main .post-card-display-excerpt {
+  margin: 10px 0;
+  margin-left: 20px;
+  font-size: 16px;
+  line-height: 20px;
+  color: #999;
+  letter-spacing: 2px;
+}
 .home .main .post-card-display:hover {
   cursor: pointer;
   top: -15px;
@@ -788,10 +800,10 @@ hue-6-2: #e6c07b
   flex-shrink: 1;
 }
 .home .main .post-card-display a .post-card-title {
-  padding: 30px 24px;
+  padding: 20px 24px;
   display: flex;
   flex-grow: 1;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 500;
   line-height: 36px;
   color: #12183A;
@@ -890,7 +902,7 @@ hue-6-2: #e6c07b
 }
 .home .main .post-block-content-info-excerpt {
   margin: 20px 0;
-  font-size: 26px;
+  font-size: 16px;
   line-height: 30px;
   text-overflow: -o-ellipsis-lastline;
   overflow: hidden;
