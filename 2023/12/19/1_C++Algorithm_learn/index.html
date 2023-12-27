@@ -412,7 +412,64 @@ public:
 &#125;;
 </code></pre>
 <hr>
+<p><strong>深度优先遍历-统一迭代法</strong></p>
+<p>问题核心：访问节点与处理节点不一致的问题。</p>
+<p>解决思路：访问节点和处理节点都放入栈中，但要把处理的节点做标记，即在后面加入空指针。</p>
+<pre><code class="C++">class Solution &#123;
+public:
+    vector&lt;int&gt; inorderTraversal(TreeNode* root) &#123;
+        vector&lt;int&gt; res;
+        stack&lt;TreeNode*&gt; st;
+        if(root != NULL) st.push(root);
+        while(!st.empty())&#123;
+            TreeNode* cur = st.top();
+            if(cur != NULL)&#123;
+                st.pop();
+                if(cur-&gt;right) st.push(cur-&gt;right);              // 加入右孩子
+
+                st.push(cur);                                  // 加入待处理变量
+                st.push(NULL);                                 // 加入标记
+                
+                if(cur-&gt;left) st.push(cur-&gt;left);              // 加入左孩子
+            &#125;else&#123;
+                st.pop();
+                cur = st.top();
+                res.push_back(cur-&gt;val);
+                st.pop();
+            &#125;
+        &#125;
+        return res;
+    &#125;
+&#125;;
+</code></pre>
+<p>此处以<code>中序遍历（右中左）</code>为例，前序遍历（右左中）和后序遍历（中右左）仅需更改节点加入顺序。</p>
+<hr>
 <p><strong>广度优先遍历</strong></p>
+<p>遍历方式：就是从左到右一层一层的去遍历二叉树。</p>
+<p>数据结构：<code>队列</code>，先进先出，符合一层一层遍历的逻辑。</p>
+<pre><code class="C++">class Solution &#123;
+public:
+    vector&lt;vector&lt;int&gt;&gt; levelOrder(TreeNode* root) &#123;
+        vector&lt;vector&lt;int&gt;&gt; res;
+        queue&lt;TreeNode*&gt; que;
+        if(root != NULL) que.push(root);
+        while(!que.empty())&#123;
+            int length = que.size();
+            vector&lt;int&gt; vec;
+            for(int i = 0 ;i &lt; length;i++)&#123;
+                TreeNode* cur = que.front();
+                que.pop();
+                vec.push_back(cur-&gt;val);                        // 处理节点
+                if(cur-&gt;left) que.push(cur-&gt;left);              // 加入左节点
+                if(cur-&gt;right) que.push(cur-&gt;right);            // 加入右节点
+            &#125;
+            res.push_back(vec);
+        &#125;
+        return res;
+    &#125;
+&#125;;
+</code></pre>
+<p>注意点：返回值数据结构为<code>vector&lt;vector&lt;int&gt;&gt;</code></p>
 <h1 id="三、C-项目构建"><a href="#三、C-项目构建" class="headerlink" title="三、C++项目构建"></a>三、C++项目构建</h1><h2 id="C-编译环境安装"><a href="#C-编译环境安装" class="headerlink" title="C++编译环境安装"></a>C++编译环境安装</h2><h2 id="CMake使用方法"><a href="#CMake使用方法" class="headerlink" title="CMake使用方法"></a>CMake使用方法</h2><p><strong>1、创建CMakeLists.txt文件</strong><br>在项目根目录文件夹下创建<code>CMakeLists.txt</code>的文件，并包含以下内容：</p>
 <pre><code class="text">cmake_minimum_required(VERSION 3.10)  // 指定CMake的最小版本要求
 
