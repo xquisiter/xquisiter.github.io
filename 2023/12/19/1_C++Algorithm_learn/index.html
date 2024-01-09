@@ -327,15 +327,23 @@
     
       <div id="post-toc">
         <span class="post-toc-title">文章目录</span>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">一、基本数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-text">二叉树</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95"><span class="toc-text">二、常见算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86"><span class="toc-text">二叉树遍历</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81C-%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA"><span class="toc-text">三、C++项目构建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85"><span class="toc-text">C++编译环境安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CMake%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">CMake使用方法</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">一、基本数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-text">二叉树</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95"><span class="toc-text">二、常见算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86"><span class="toc-text">二叉树遍历</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E4%BC%97%E6%95%B0"><span class="toc-text">二叉树众数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9"><span class="toc-text">删除二叉搜索树中的节点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81C-%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA"><span class="toc-text">三、C++项目构建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85"><span class="toc-text">C++编译环境安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CMake%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">CMake使用方法</span></a></li></ol></li></ol>
       </div>
     
 
-    <h1 id="一、基本数据结构"><a href="#一、基本数据结构" class="headerlink" title="一、基本数据结构"></a>一、基本数据结构</h1><h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><h1 id="二、常见算法"><a href="#二、常见算法" class="headerlink" title="二、常见算法"></a>二、常见算法</h1><h2 id="二叉树遍历"><a href="#二叉树遍历" class="headerlink" title="二叉树遍历"></a>二叉树遍历</h2><p><strong>二叉树遍历方式</strong>分为:<code>深度优先遍历</code>、<code>广度优先遍历</code></p>
+    <h1 id="一、基本数据结构"><a href="#一、基本数据结构" class="headerlink" title="一、基本数据结构"></a>一、基本数据结构</h1><h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><p>二叉树节点的深度：<strong>根</strong>节点到<strong>该</strong>节点的最长简单路径边的条数或者节点数。<br>二叉树节点的高度：<strong>该</strong>节点到<strong>叶子</strong>节点的最长简单路径边的条数或者节点数。</p>
+<p>前序遍历求深度，后序遍历求高度。</p>
+<p><strong>二叉搜索树（BST）</strong><br>二叉搜索树是一个有序树：</p>
+<ul>
+<li>如果它的左子树不空，则左子树上所有节点的值均小于它根节点的值</li>
+<li>如果它的右子树不空，则右子树上所有节点的值均大于它根节点的值</li>
+<li>它的左右子树也分别为二叉搜索树</li>
+</ul>
+<h1 id="二、常见算法"><a href="#二、常见算法" class="headerlink" title="二、常见算法"></a>二、常见算法</h1><h2 id="二叉树遍历"><a href="#二叉树遍历" class="headerlink" title="二叉树遍历"></a>二叉树遍历</h2><p><strong>二叉树遍历方式</strong>分为:<code>深度优先遍历</code>、<code>广度优先遍历</code></p>
 <p>深度优先遍历：</p>
 <ul>
 <li>前序遍历（递归法，迭代法）；遍历顺序：<strong>中</strong> 左 右</li>
-<li>中序遍历（递归法，迭代法）；遍历顺序：左 <strong>中</strong> 右</li>
+<li>中序遍历（递归法，迭代法）,与<code>二叉搜索树</code>的顺序正好对应；遍历顺序：左 <strong>中</strong> 右</li>
 <li>后序遍历（递归法，迭代法）；遍历顺序：左 右 <strong>中</strong></li>
 </ul>
 <p>广度优先遍历：</p>
@@ -470,6 +478,93 @@ public:
 &#125;;
 </code></pre>
 <p>注意点：返回值数据结构为<code>vector&lt;vector&lt;int&gt;&gt;</code></p>
+<h2 id="二叉树众数"><a href="#二叉树众数" class="headerlink" title="二叉树众数"></a>二叉树众数</h2><p><strong>要求</strong>：一个含有重复值的二叉树，求解出所有的众数。</p>
+<p><strong>求解思路</strong>：遍历二叉树，统计入<code>unordered_map</code>数据结构里，key为树中的数值，value为出现的频次。然后转化为<code>vector</code>数据结构，用sort函数进行从大到小排序。</p>
+<p><strong>关键点</strong>：</p>
+<ul>
+<li><code>map</code>不能排序，需要转为<code>vector</code></li>
+<li>sort函数中排序判定的用法</li>
+</ul>
+<pre><code class="C++">class Solution &#123;
+private:
+    void searchBST(TreeNode* cur, unordered_map&lt;int,int&gt; &amp; map ) &#123;
+        if(cur == NULL) return;
+        map[cur-&gt;val]++;
+        searchBST(cur-&gt;left,map);
+        searchBST(cur-&gt;right,map);
+        return;
+    &#125;
+
+    bool static cmp(const pair&lt;int,int&gt; &amp; a, const pair&lt;int,int&gt; &amp; b) &#123;
+        return a.second &gt; b.second;                                               
+    &#125;
+
+public:
+    vector&lt;int&gt; findMode(TreeNode* root) &#123;
+        unordered_map&lt;int,int&gt; map;
+        vector&lt;int&gt; res;
+        if(root == NULL) return res;
+        searchBST(root,map);
+        vector&lt;pair&lt;int,int&gt;&gt; vec(map.begin(),map.end());           // map数据结构无法排序，换成vector
+        sort(vec.begin(),vec.end(),cmp);                            // 默认按升序，即cmp返回true的时候a放在b前面。
+        res.push_back(vec[0].first);
+        for(int i = 1;i&lt;vec.size();i++)&#123;
+            if(vec[i].second == vec[0].second) res.push_back(vec[i].first);
+            else break;
+        &#125;
+        return res;
+    &#125;
+&#125;;
+</code></pre>
+<h2 id="删除二叉搜索树中的节点"><a href="#删除二叉搜索树中的节点" class="headerlink" title="删除二叉搜索树中的节点"></a>删除二叉搜索树中的节点</h2><p><strong>要求</strong>：给定一棵二叉搜索树<code>root</code>，给定值<code>key</code>，从树中删除对应的值，返回二叉树根节点</p>
+<p><strong>求解思路</strong>：前序遍历，根据二叉搜索树的特性，当前节点大于key向左遍历，小于key向右遍历，当当前节点的值等于key时，考虑一下几种情况。</p>
+<ol>
+<li>左右孩子都为空，直接删除节点，返回NULL</li>
+<li>删除节点的<strong>左</strong>孩子为空，右孩子不为空，删除节点，右子树补位，返回右子树节点</li>
+<li>删除节点的<strong>右</strong>孩子为空，左孩子不为空，删除节点，左子树补位，返回左子树节点</li>
+<li>左右孩子都不为空，将删除节点的左子树放到右子树的最左面节点的左孩子，返回右子树节点。</li>
+</ol>
+<pre><code class="C++">class Solution &#123;
+public:
+    TreeNode* deleteNode(TreeNode* root, int key) &#123;
+        if(root == NULL) return root;
+        if(root-&gt;val == key)&#123;
+            // 左右子树同时为空
+            if(root-&gt;left == NULL &amp;&amp; root-&gt;right ==NULL)&#123;
+                delete root;                       // 删除节点
+                return NULL;
+            &#125;
+            // 左子树为空
+            else if(root-&gt;left == NULL) &#123;
+                auto retNode = root-&gt;right;
+                delete root;
+                return retNode;
+            &#125;
+            // 仅右子树为空
+            else if(root-&gt;right == NULL) &#123;
+                auto retNode = root-&gt;left;
+                delete root;
+                return retNode;
+            &#125;
+            // 左右子树都不为空
+            else &#123;
+                TreeNode* cur = root -&gt;right;
+                while(cur-&gt;left != NULL) &#123;
+                    cur = cur-&gt;left;
+                &#125;
+                cur-&gt;left = root-&gt;left;
+                TreeNode* tmp = root;
+                root = root-&gt;right;
+                delete tmp;
+                return root;
+            &#125;
+        &#125;
+        if(root-&gt;val &gt; key) root-&gt;left = deleteNode(root-&gt;left,key);
+        if(root-&gt;val &lt; key) root-&gt;right = deleteNode(root-&gt;right,key);
+        return root;
+    &#125;
+&#125;;
+</code></pre>
 <h1 id="三、C-项目构建"><a href="#三、C-项目构建" class="headerlink" title="三、C++项目构建"></a>三、C++项目构建</h1><h2 id="C-编译环境安装"><a href="#C-编译环境安装" class="headerlink" title="C++编译环境安装"></a>C++编译环境安装</h2><h2 id="CMake使用方法"><a href="#CMake使用方法" class="headerlink" title="CMake使用方法"></a>CMake使用方法</h2><p><strong>1、创建CMakeLists.txt文件</strong><br>在项目根目录文件夹下创建<code>CMakeLists.txt</code>的文件，并包含以下内容：</p>
 <pre><code class="text">cmake_minimum_required(VERSION 3.10)  // 指定CMake的最小版本要求
 
@@ -569,7 +664,7 @@ Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
 		
 <div class="footer">
 	<div class="Copyright">
-		©2023 By XQuisiter. 
+		©2024 By XQuisiter. 
 		<!-- 主题：<astyle="text-decoration: none;display: contents; color: #898F9F;"
 			href="https://github.com/79e/hexo-theme-quiet">Quiet</a> -->
 	</div>
