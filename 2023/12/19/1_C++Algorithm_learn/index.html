@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+<title>C++算法学习记录</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+
+<link rel="stylesheet" href="/css/index.css">
+
+
+
+<meta name="keywords" content="C++,算法,秋招,实习,">
+<meta name="description" content="梦里有时身化鹤，人间无数草为萤。">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/index.js"></script>
+
+
+<script src="/js/fancybox.umd.js"></script>
+
+
+<script src="/js/fancybox-images.js"></script>
+
+
+<script src="/js/gitalk.min.js"></script>
+
+
+<script src="/js/hljs.min.js"></script>
+ 
+<script>hljs.highlightAll();</script>
+
+	<meta name="generator" content="Hexo 6.3.0"></head>
+
+	<body>
+		
+	<div class="header">
+		<div class="header-top" id="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/logo.png" alt="Quiet">
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										HOME
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										ARCHIVE
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/categories">
+										CATEGORIES
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/tags">
+										TAGS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										LINKS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										ABOUT
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>XQuisiter</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">HOME</a>
+        </li>
+        
+        <li>
+            <a href="/archives">ARCHIVE</a>
+        </li>
+        
+        <li>
+            <a href="/categories">CATEGORIES</a>
+        </li>
+        
+        <li>
+            <a href="/tags">TAGS</a>
+        </li>
+        
+        <li>
+            <a href="/links">LINKS</a>
+        </li>
+        
+        <li>
+            <a href="/about">ABOUT</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+        <a target="_blank" rel="noopener" href="https://github.com/79E/hexo-theme-quiet">
+            <img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+        </a>
+        
+        <a target="_blank" rel="noopener" href="https://www.artstation.com/xupeiyuan2/collections">
+            <img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+        </a>
+        
+    </div>
+</div>
+<div class='shelter'>
+</div>
+<style>
+    .shelter{
+        background-color: #333;
+        opacity:0.5;
+        cursor: pointer;
+        display: none; 
+        position: fixed;
+        left: 0;
+        top: 0; 
+        right: 0;
+        bottom: 0;
+        z-index: 1998;
+    }
+    .sidebar {
+        width: 66%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        bottom: 0;
+        background: #fff;
+        z-index: 1999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815);
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $( function () {
+	$( '.h-right-close>svg' )
+		.click( function () {
+			$( '.sidebar' )
+				.animate( {
+					right: "0"
+				}, 500 );
+			$( '.shelter' )
+				.fadeIn( "slow" )
+		} );
+	$( '.shelter' )
+		.click( function ( e ) {
+			$( '.sidebar' )
+				.animate( {
+					right: "-100%"
+				}, 500 );
+			$( '.shelter' )
+				.fadeOut( "slow" )
+		} )
+} )
+
+</script>
+
+<div class="post">
+    <div class="post-header-background post-header-img"
+    style="background: url('https://api.ixiaowai.cn/gqapi/gqapi.php')" 
+>
+    <div class="post-header-background-content">
+        <ul class="post-header-tag">
+            
+            
+            <li><a href="/tags/C++">C++</a></li>
+            
+            <li><a href="/tags/算法">算法</a></li>
+            
+            <li><a href="/tags/秋招">秋招</a></li>
+            
+            <li><a href="/tags/实习">实习</a></li>
+            
+            
+        </ul>
+        
+        <h1>C++算法学习记录</h1>
+        <div class="post-header-info">
+            <div class="post-header-info-author">
+                
+                    <svg t="1604839279282" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="2901" width="20" height="20">
+                        <path
+                            d="M513 956.3c-247.7 0-448-200.3-448-448S265.3 66.2 513 66.2s448 200.3 448 448-200.3 442.1-448 442.1z m0-830.9c-212.2 0-388.8 170.7-388.8 388.8C124.2 726.3 294.9 903 513 903c212.2 0 388.8-170.7 388.8-388.8S725.2 125.4 513 125.4z m0 430.2c-94.2 0-170.7-76.5-170.7-170.7S418.8 207.8 513 207.8s170.7 76.5 170.7 170.7S607.2 555.6 513 555.6z m0-289.1c-64.6 0-112 52.8-112 112s47.4 117.9 112 117.9 112-52.8 112-112-47.4-117.9-112-117.9z m0 689.8c-135.7 0-259-58.7-341.9-158.9l-11.8-17.8 11.8-17.8c76.5-117.9 206.2-188.5 347.8-188.5 135.7 0 265 64.6 341.9 182.6l11.8 17.8-11.8 17.8C778 897.1 648.7 956.3 513 956.3zM230.3 773.2C300.9 849.7 406.9 897 513 897c112 0 218.1-47.4 288.6-129.8-70.5-88.2-170.7-135.6-282.7-135.6s-218.1 53.3-288.6 141.6z"
+                            p-id="2902" fill="#ffffff"></path>
+                    </svg>
+                    
+                <span class="post-header-info-author-text"> <a target="_blank" rel="noopener" href="https://github.com/xquisiter">XQuisiter</a></span>
+                <div class="post-header-info-author-categories">
+                    
+                         <a href="../../categories/编程素养/" target="_blank" >编程素养</a>
+                    
+                </div>
+                <p>2023-12-19 16:41:44</p>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="post-content" id="content">
+  
+  <div id="article" class="post-content-info">
+    
+      <div id="post-toc">
+        <span class="post-toc-title">文章目录</span>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">一、基本数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-text">二叉树</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95"><span class="toc-text">二、常见算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86"><span class="toc-text">二叉树遍历</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81C-%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA"><span class="toc-text">三、C++项目构建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85"><span class="toc-text">C++编译环境安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CMake%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">CMake使用方法</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <h1 id="一、基本数据结构"><a href="#一、基本数据结构" class="headerlink" title="一、基本数据结构"></a>一、基本数据结构</h1><h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><p>二叉树节点的深度：<strong>根</strong>节点到<strong>该</strong>节点的最长简单路径边的条数或者节点数。<br>二叉树节点的高度：<strong>该</strong>节点到<strong>叶子</strong>节点的最长简单路径边的条数或者节点数。</p>
+<p>前序遍历求深度，后序遍历求高度。</p>
+<h1 id="二、常见算法"><a href="#二、常见算法" class="headerlink" title="二、常见算法"></a>二、常见算法</h1><h2 id="二叉树遍历"><a href="#二叉树遍历" class="headerlink" title="二叉树遍历"></a>二叉树遍历</h2><p><strong>二叉树遍历方式</strong>分为:<code>深度优先遍历</code>、<code>广度优先遍历</code></p>
+<p>深度优先遍历：</p>
+<ul>
+<li>前序遍历（递归法，迭代法）；遍历顺序：<strong>中</strong> 左 右</li>
+<li>中序遍历（递归法，迭代法）；遍历顺序：左 <strong>中</strong> 右</li>
+<li>后序遍历（递归法，迭代法）；遍历顺序：左 右 <strong>中</strong></li>
+</ul>
+<p>广度优先遍历：</p>
+<ul>
+<li>层次遍历（迭代法）</li>
+</ul>
+<hr>
+<p><strong>深度优先遍历-递归法</strong></p>
+<p>递归法一般构建思路：</p>
+<ul>
+<li>确定递归函数的参数与返回值。哪些参数是需要递归过程处理的，返回值的类型是什么</li>
+<li>确认递归终止条件。</li>
+<li>确定单层递归的逻辑。每一次递归要进行的操作</li>
+</ul>
+<p>此处以<code>前序遍历</code>为例，中序和后序遍历仅需改变处理逻辑部分的顺序。</p>
+<pre><code class="C++">class Solution &#123;
+public:
+    void pretravel(TreeNode*cur, vector&lt;int&gt; &amp; vec)&#123;
+        if(cur == NULL) return;
+        vec.push_back(cur-&gt;val);                   // 当前节点的数值导入
+        pretravel(cur-&gt;left,vec);                  // 查找左节点
+        pretravel(cur-&gt;right,vec);                 // 查找右节点
+    &#125;
+
+    vector&lt;int&gt; preorderTraversal(TreeNode* root) &#123;
+        vector&lt;int&gt; res;
+        pretravel(root, res);
+        return res;
+    &#125;
+&#125;;
+</code></pre>
+<hr>
+<p><strong>深度优先遍历-迭代法</strong></p>
+<p>借助<code>栈</code>实现，三种遍历方法不同。<br><strong>前序遍历</strong>: 先将根节点放入栈中，然后将右孩子加入栈，再加入左孩子。<br>因为栈是后进先处理，先放入右孩子，再放入左孩子。</p>
+<pre><code class="C++">class Solution &#123;
+public:
+    vector&lt;int&gt; preorderTraversal(TreeNode* root) &#123;
+        vector&lt;int&gt; res;
+        stack&lt;TreeNode*&gt; st;
+        st.push(root);
+        if(root == NULL) return res;
+        while(!st.empty())&#123;
+            TreeNode* cur = st.top();                         // 中节点
+            st.pop();
+            res.push_back(cur-&gt;val);
+            if(cur-&gt;right != NULL) st.push(cur-&gt;right);       // 右节点
+            if(cur-&gt;left != NULL) st.push(cur-&gt;left);         // 左节点
+        &#125;
+        return res;
+    &#125;
+&#125;;
+</code></pre>
+<p><strong>后序遍历</strong>: 可以按照中，左，右的顺序放入，然后反转最后的结果，代码参考前序遍历。</p>
+<p><strong>中序遍历</strong>：整个过程涉及两个操作，访问节点和处理节点，访问节点是遍历节点，处理节点是将元素放入res数组中。中序遍历两个过程是分开的，需要借助<code>指针</code>帮助访问节点，<code>栈</code>来帮助处理节点上的元素。</p>
+<pre><code class="C++">class Solution &#123;
+public:
+    vector&lt;int&gt; inorderTraversal(TreeNode* root) &#123;
+        vector&lt;int&gt; res;
+        stack&lt;TreeNode*&gt; st;
+        TreeNode* cur = root;                     // 指针记录当前位置
+        while(cur != NULL || !st.empty())&#123;
+            if(cur != NULL)&#123;
+                st.push(cur);                     // 如果当前位置不是空指针，放入栈
+                cur = cur-&gt;left;                  // 指针指向左孩子
+            &#125;else&#123;
+                cur = st.top();                   // 如果是空指针，处理栈顶元素
+                st.pop();
+                res.push_back(cur-&gt;val);
+                cur = cur-&gt;right;
+            &#125;
+        &#125;
+        return res;
+    &#125;
+&#125;;
+</code></pre>
+<hr>
+<p><strong>深度优先遍历-统一迭代法</strong></p>
+<p>问题核心：访问节点与处理节点不一致的问题。</p>
+<p>解决思路：访问节点和处理节点都放入栈中，但要把处理的节点做标记，即在后面加入空指针。</p>
+<pre><code class="C++">class Solution &#123;
+public:
+    vector&lt;int&gt; inorderTraversal(TreeNode* root) &#123;
+        vector&lt;int&gt; res;
+        stack&lt;TreeNode*&gt; st;
+        if(root != NULL) st.push(root);
+        while(!st.empty())&#123;
+            TreeNode* cur = st.top();
+            if(cur != NULL)&#123;
+                st.pop();
+                if(cur-&gt;right) st.push(cur-&gt;right);              // 加入右孩子
+
+                st.push(cur);                                  // 加入待处理变量
+                st.push(NULL);                                 // 加入标记
+                
+                if(cur-&gt;left) st.push(cur-&gt;left);              // 加入左孩子
+            &#125;else&#123;
+                st.pop();
+                cur = st.top();
+                res.push_back(cur-&gt;val);
+                st.pop();
+            &#125;
+        &#125;
+        return res;
+    &#125;
+&#125;;
+</code></pre>
+<p>此处以<code>中序遍历（右中左）</code>为例，前序遍历（右左中）和后序遍历（中右左）仅需更改节点加入顺序。</p>
+<hr>
+<p><strong>广度优先遍历</strong></p>
+<p>遍历方式：就是从左到右一层一层的去遍历二叉树。</p>
+<p>数据结构：<code>队列</code>，先进先出，符合一层一层遍历的逻辑。</p>
+<pre><code class="C++">class Solution &#123;
+public:
+    vector&lt;vector&lt;int&gt;&gt; levelOrder(TreeNode* root) &#123;
+        vector&lt;vector&lt;int&gt;&gt; res;
+        queue&lt;TreeNode*&gt; que;
+        if(root != NULL) que.push(root);
+        while(!que.empty())&#123;
+            int length = que.size();
+            vector&lt;int&gt; vec;
+            for(int i = 0 ;i &lt; length;i++)&#123;
+                TreeNode* cur = que.front();
+                que.pop();
+                vec.push_back(cur-&gt;val);                        // 处理节点
+                if(cur-&gt;left) que.push(cur-&gt;left);              // 加入左节点
+                if(cur-&gt;right) que.push(cur-&gt;right);            // 加入右节点
+            &#125;
+            res.push_back(vec);
+        &#125;
+        return res;
+    &#125;
+&#125;;
+</code></pre>
+<p>注意点：返回值数据结构为<code>vector&lt;vector&lt;int&gt;&gt;</code></p>
+<h1 id="三、C-项目构建"><a href="#三、C-项目构建" class="headerlink" title="三、C++项目构建"></a>三、C++项目构建</h1><h2 id="C-编译环境安装"><a href="#C-编译环境安装" class="headerlink" title="C++编译环境安装"></a>C++编译环境安装</h2><h2 id="CMake使用方法"><a href="#CMake使用方法" class="headerlink" title="CMake使用方法"></a>CMake使用方法</h2><p><strong>1、创建CMakeLists.txt文件</strong><br>在项目根目录文件夹下创建<code>CMakeLists.txt</code>的文件，并包含以下内容：</p>
+<pre><code class="text">cmake_minimum_required(VERSION 3.10)  // 指定CMake的最小版本要求
+
+project(MyProject)                   // 设置项目名称
+
+add_executable(MyExecutable main.cpp)   // 添加可执行文件并指定源文件
+</code></pre>
+<p><strong>2、创建构建目录</strong><br>在项目根目录外创建一个构建目录，例如，可以在项目根目录下创建一个名为<code>build</code>的文件夹</p>
+<pre><code class="bash">mkdir build             # 创建构建目录
+cd build                # 进入构建目录
+</code></pre>
+<p><strong>3、运行CMake</strong></p>
+<p>在构建目录中运行CMake命令，指向项目根目录</p>
+<pre><code class="bash">cmake ..
+</code></pre>
+<p><strong>4、编译项目</strong><br>在构建目录中运行make命令</p>
+<pre><code class="bash">make
+</code></pre>
+
+  </div>
+  <div id="gitalk-container"></div>
+</div>
+
+<script>
+  
+Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
+  dragToClose: true,
+  Toolbar: true,
+  closeButton: "top",
+  Image: {
+    zoom: true,
+  },
+  on: {
+    initCarousel: (fancybox) => {
+      const slide = fancybox.Carousel.slides[fancybox.Carousel.page];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+    "Carousel.change": (fancybox, carousel, to, from) => {
+      const slide = carousel.slides[to];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+  },
+});
+</script>
+
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 9999;
+        /* width: 600px !important; */
+        min-width: 0%;
+        max-width: 90%;
+        max-height: 80%;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            max-width: 88%
+        }
+    }
+</style>
+
+    <div class="post-paging">
+    
+    <a href="/2023/12/19/2_%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/">
+        <div class="post-paging-last">
+            <span>上一篇</span>
+            <p>前端开发记录</p>
+        </div>
+    </a>
+    
+
+    
+</div>
+</div>
+		
+<div class="footer">
+	<div class="Copyright">
+		©2024 By XQuisiter. 
+		<!-- 主题：<astyle="text-decoration: none;display: contents; color: #898F9F;"
+			href="https://github.com/79e/hexo-theme-quiet">Quiet</a> -->
+	</div>
+	<div class="contact">
+		
+		<a target="_blank" rel="noopener" href="https://github.com/79E/hexo-theme-quiet">
+			<img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+		</a>
+		
+		<a target="_blank" rel="noopener" href="https://www.artstation.com/xupeiyuan2/collections">
+			<img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+		</a>
+		
+	</div>
+</div>
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            transition: border .5s;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $( '#js-go_top' )
+	.gotoTop( {
+		offset: 500,
+		speed: 300,
+		animationShow: {
+			'transform': 'translate(0,0)',
+			'transition': 'transform .5s ease-in-out'
+		},
+		animationHide: {
+			'transform': 'translate(100px,0)',
+			'transition': 'transform .5s ease-in-out'
+		}
+	} );
+</script>
+
+
+<script>
+	console.log('\n %c Hexo-Quiet 主题 %c https://github.com/79e/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+</script>
+	</body>
+</html>
+
