@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+<title>操作系统学习记录</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+
+<link rel="stylesheet" href="/css/index.css">
+
+
+
+<meta name="keywords" content="操作系统,">
+<meta name="description" content="阶下青苔与红树，雨中寥落月中愁。">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/index.js"></script>
+
+
+<script src="/js/fancybox.umd.js"></script>
+
+
+<script src="/js/fancybox-images.js"></script>
+
+
+<script src="/js/gitalk.min.js"></script>
+
+
+<script src="/js/hljs.min.js"></script>
+ 
+<script>hljs.highlightAll();</script>
+
+	<meta name="generator" content="Hexo 6.3.0"></head>
+
+	<body>
+		
+	<div class="header">
+		<div class="header-top" id="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/logo.png" alt="Quiet">
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										HOME
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										ARCHIVE
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/categories">
+										CATEGORIES
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/tags">
+										TAGS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										LINKS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										ABOUT
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>XQuisiter</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">HOME</a>
+        </li>
+        
+        <li>
+            <a href="/archives">ARCHIVE</a>
+        </li>
+        
+        <li>
+            <a href="/categories">CATEGORIES</a>
+        </li>
+        
+        <li>
+            <a href="/tags">TAGS</a>
+        </li>
+        
+        <li>
+            <a href="/links">LINKS</a>
+        </li>
+        
+        <li>
+            <a href="/about">ABOUT</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+        <a target="_blank" rel="noopener" href="https://github.com/79E/hexo-theme-quiet">
+            <img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+        </a>
+        
+        <a target="_blank" rel="noopener" href="https://www.artstation.com/xupeiyuan2/collections">
+            <img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+        </a>
+        
+    </div>
+</div>
+<div class='shelter'>
+</div>
+<style>
+    .shelter{
+        background-color: #333;
+        opacity:0.5;
+        cursor: pointer;
+        display: none; 
+        position: fixed;
+        left: 0;
+        top: 0; 
+        right: 0;
+        bottom: 0;
+        z-index: 1998;
+    }
+    .sidebar {
+        width: 66%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        bottom: 0;
+        background: #fff;
+        z-index: 1999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815);
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $( function () {
+	$( '.h-right-close>svg' )
+		.click( function () {
+			$( '.sidebar' )
+				.animate( {
+					right: "0"
+				}, 500 );
+			$( '.shelter' )
+				.fadeIn( "slow" )
+		} );
+	$( '.shelter' )
+		.click( function ( e ) {
+			$( '.sidebar' )
+				.animate( {
+					right: "-100%"
+				}, 500 );
+			$( '.shelter' )
+				.fadeOut( "slow" )
+		} )
+} )
+
+</script>
+
+<div class="post">
+    <div class="post-header-background post-header-img"
+    style="background: url('https://api.ixiaowai.cn/gqapi/gqapi.php')" 
+>
+    <div class="post-header-background-content">
+        <ul class="post-header-tag">
+            
+            
+            <li><a href="/tags/操作系统">操作系统</a></li>
+            
+            
+        </ul>
+        
+        <h1>操作系统学习记录</h1>
+        <div class="post-header-info">
+            <div class="post-header-info-author">
+                
+                    <svg t="1604839279282" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="2901" width="20" height="20">
+                        <path
+                            d="M513 956.3c-247.7 0-448-200.3-448-448S265.3 66.2 513 66.2s448 200.3 448 448-200.3 442.1-448 442.1z m0-830.9c-212.2 0-388.8 170.7-388.8 388.8C124.2 726.3 294.9 903 513 903c212.2 0 388.8-170.7 388.8-388.8S725.2 125.4 513 125.4z m0 430.2c-94.2 0-170.7-76.5-170.7-170.7S418.8 207.8 513 207.8s170.7 76.5 170.7 170.7S607.2 555.6 513 555.6z m0-289.1c-64.6 0-112 52.8-112 112s47.4 117.9 112 117.9 112-52.8 112-112-47.4-117.9-112-117.9z m0 689.8c-135.7 0-259-58.7-341.9-158.9l-11.8-17.8 11.8-17.8c76.5-117.9 206.2-188.5 347.8-188.5 135.7 0 265 64.6 341.9 182.6l11.8 17.8-11.8 17.8C778 897.1 648.7 956.3 513 956.3zM230.3 773.2C300.9 849.7 406.9 897 513 897c112 0 218.1-47.4 288.6-129.8-70.5-88.2-170.7-135.6-282.7-135.6s-218.1 53.3-288.6 141.6z"
+                            p-id="2902" fill="#ffffff"></path>
+                    </svg>
+                    
+                <span class="post-header-info-author-text"> <a target="_blank" rel="noopener" href="https://github.com/xquisiter">XQuisiter</a></span>
+                <div class="post-header-info-author-categories">
+                    
+                         <a href="../../categories/计算机基础/" target="_blank" >计算机基础</a>
+                    
+                </div>
+                <p>2024-05-06 16:41:44</p>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="post-content" id="content">
+  
+  <div id="article" class="post-content-info">
+    
+      <div id="post-toc">
+        <span class="post-toc-title">文章目录</span>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0"><span class="toc-text">一、操作系统概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%B9%E5%BE%81"><span class="toc-text">1.1 操作系统的特征</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-%E5%B9%B6%E5%8F%91-exclamation"><span class="toc-text">1.1.1 并发(:exclamation:)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-2-%E5%85%B1%E4%BA%AB"><span class="toc-text">1.1.2 共享</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-3-%E8%99%9A%E6%8B%9F"><span class="toc-text">1.1.3 虚拟</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-4-%E5%BC%82%E6%AD%A5"><span class="toc-text">1.1.4 异步</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-text">1.2 操作系统的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-1-%E5%88%86%E6%97%B6%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-text">1.2.1 分时操作系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-2-%E5%AE%9E%E6%97%B6%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-text">1.2.2 实时操作系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-3-%E7%BD%91%E7%BB%9C%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8E%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F"><span class="toc-text">1.2.3 网络操作系统与分布式计算机系统</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83"><span class="toc-text">1.3 操作系统运行环境</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-1-%E6%97%B6%E9%92%9F%E7%AE%A1%E7%90%86"><span class="toc-text">1.3.1 时钟管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-2-%E4%B8%AD%E6%96%AD%E6%9C%BA%E5%88%B6-exclamation"><span class="toc-text">1.3.2 中断机制(:exclamation:)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-3-%E5%8E%9F%E8%AF%AD"><span class="toc-text">1.3.3 原语</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-4-%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8"><span class="toc-text">1.3.4 系统调用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="toc-text">二、进程管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E4%BB%80%E4%B9%88%E6%98%AF%E8%BF%9B%E7%A8%8B"><span class="toc-text">2.1 什么是进程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">2.1.1 基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-%E8%BF%9B%E7%A8%8B%E7%9A%84%E7%BB%93%E6%9E%84%E4%B8%8E%E7%89%B9%E5%BE%81"><span class="toc-text">2.1.2 进程的结构与特征</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-3-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B"><span class="toc-text">2.1.3 进程与线程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E8%BF%9B%E7%A8%8B%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C"><span class="toc-text">2.2 进程如何运行</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1-%E8%BF%9B%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81"><span class="toc-text">2.2.1 进程的状态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2-%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6"><span class="toc-text">2.2.2 进程控制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-3-%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6"><span class="toc-text">2.2.3 进程调度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-4-%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="toc-text">2.2.4 调度算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-5-%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1"><span class="toc-text">2.2.5 进程通信</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-6-%E8%BF%9B%E7%A8%8B%E5%90%8C%E6%AD%A5"><span class="toc-text">2.2.6 进程同步</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-7-%E8%BD%AF%E4%BB%B6%E5%AE%9E%E7%8E%B0%E4%BA%92%E6%96%A5%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">2.2.7 软件实现互斥的方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-8-%E7%A1%AC%E4%BB%B6%E5%AE%9E%E7%8E%B0%E4%BA%92%E6%96%A5%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%88%E5%AE%9E%E9%99%85%E4%B8%AD%E4%B8%8D%E7%94%A8%E8%BD%AF%E4%BB%B6%E7%9A%84%EF%BC%89"><span class="toc-text">2.2.8 硬件实现互斥的方法（实际中不用软件的）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-9-%E4%BF%A1%E5%8F%B7%E9%87%8F%E6%9C%BA%E5%88%B6%EF%BC%88Semaphore%EF%BC%89-exclamation"><span class="toc-text">2.2.9 信号量机制（Semaphore）(:exclamation:)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-10-%E7%AE%A1%E7%A8%8B%EF%BC%88Monitor%EF%BC%89"><span class="toc-text">2.2.10 管程（Monitor）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-11-%E6%AD%BB%E9%94%81%E9%97%AE%E9%A2%98"><span class="toc-text">2.2.11 死锁问题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="toc-text">三、内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="toc-text">3.1 内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-1-%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E5%A4%9A%E5%B1%82%E7%BB%93%E6%9E%84"><span class="toc-text">3.1.1 存储器的多层结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-2-%E8%BF%9B%E7%A8%8B%E8%BF%90%E8%A1%8C%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-text">3.1.2 进程运行的基本原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-3-%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E7%AE%A1%E7%90%86%E6%96%B9%E5%BC%8F"><span class="toc-text">3.1.3 连续分配管理方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-4-%E9%9D%9E%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E7%AE%A1%E7%90%86%E6%96%B9%E5%BC%8F"><span class="toc-text">3.1.4 非连续分配管理方式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="toc-text">3.2 虚拟内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">3.2.1 基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-text">3.2.2 虚拟内存的实现</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81I-O%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86"><span class="toc-text">四、I&#x2F;O设备管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86"><span class="toc-text">五、文件管理</span></a></li></ol>
+      </div>
+    
+
+    <h2 id="一、操作系统概述"><a href="#一、操作系统概述" class="headerlink" title="一、操作系统概述"></a>一、操作系统概述</h2><h3 id="1-1-操作系统的特征"><a href="#1-1-操作系统的特征" class="headerlink" title="1.1 操作系统的特征"></a>1.1 操作系统的特征</h3><p>并发是虚拟和异步的前提，并发与共享互为前提<br><img src="/1.png" alt="avatar"></p>
+<h4 id="1-1-1-并发-exclamation"><a href="#1-1-1-并发-exclamation" class="headerlink" title="1.1.1 并发(:exclamation:)"></a>1.1.1 并发(:exclamation:)</h4><p><strong>概念</strong>：同一<code>时间段</code>执行和调度程序的能力。宏观上为同时执行多个程序；微观上表现为多道程序间高速切换，分时交替执行。</p>
+<p><strong>与并行区分</strong>：并行是同一<code>时刻</code>发生的事件数量。</p>
+<h4 id="1-1-2-共享"><a href="#1-1-2-共享" class="headerlink" title="1.1.2 共享"></a>1.1.2 共享</h4><p><strong>概念</strong>：系统中的资源供多个<code>并发执行</code>的应用程序共同使用。</p>
+<p><strong>关系解释</strong>：并发必定有多个应用程序，是共享性的前提；并发难以避免多个程序同时访问同一个资源（例如磁盘），需要共享性前提。</p>
+<h3 id="1-1-3-虚拟"><a href="#1-1-3-虚拟" class="headerlink" title="1.1.3 虚拟"></a>1.1.3 虚拟</h3><p><strong>概念</strong>：使用某种技术把一个物理实体变成多个逻辑上的对应物品</p>
+<p><strong>技术</strong>：时分复用（TDM），空分复用（SDM）</p>
+<h4 id="1-1-4-异步"><a href="#1-1-4-异步" class="headerlink" title="1.1.4 异步"></a>1.1.4 异步</h4><p><strong>概念</strong>：多道程序下，多个程序并发执行；单处理机环境下，多个程序分时交替执行。宏观上“一气呵成”，微观上“走走停停”。</p>
+<h3 id="1-2-操作系统的分类"><a href="#1-2-操作系统的分类" class="headerlink" title="1.2 操作系统的分类"></a>1.2 操作系统的分类</h3><h4 id="1-2-1-分时操作系统"><a href="#1-2-1-分时操作系统" class="headerlink" title="1.2.1 分时操作系统"></a>1.2.1 分时操作系统</h4><p><strong>概念</strong>：一台主机连接多个带有显示器和键盘的终端，同时允许多个用户通过自己的终端，以交互方式使用计算机，共享主机资源，使用<code>时间片</code>分配。</p>
+<p><strong>分时系统的特征</strong>：</p>
+<ol>
+<li><strong>多路性</strong>：时间片轮转机制</li>
+<li><strong>独立性</strong>：用户彼此独立</li>
+<li><strong>及时性</strong>：用户短时间内获得响应</li>
+<li><strong>交互性</strong>：用户可以请求多种服务</li>
+</ol>
+<p><strong>分时系统的缺点</strong>：用户优先级相同，不能处理紧急任务。</p>
+<h4 id="1-2-2-实时操作系统"><a href="#1-2-2-实时操作系统" class="headerlink" title="1.2.2 实时操作系统"></a>1.2.2 实时操作系统</h4><p><strong>概念</strong>：系统能及时响应外部事件的请求，在规定的时间内完成对事件的处理。（及时性比分时系统更高）</p>
+<p><strong>分时系统的特征</strong>：</p>
+<ol>
+<li><strong>多路性</strong>：时间片轮转机制</li>
+<li><strong>独立性</strong>：用户彼此独立</li>
+<li><strong>及时性</strong>：用户短时间内获得响应</li>
+<li><strong>交互性</strong>：用户可以请求多种服务</li>
+<li><strong>可靠性</strong>：<code>多级容错，保证系统和数据的安全</code></li>
+</ol>
+<h4 id="1-2-3-网络操作系统与分布式计算机系统"><a href="#1-2-3-网络操作系统与分布式计算机系统" class="headerlink" title="1.2.3 网络操作系统与分布式计算机系统"></a>1.2.3 网络操作系统与分布式计算机系统</h4><p><strong>网络操作系统</strong>：资源共享，远程通信。</p>
+<p><strong>分布式操作系统</strong>：分布性，并行性。</p>
+<h3 id="1-3-操作系统运行环境"><a href="#1-3-操作系统运行环境" class="headerlink" title="1.3 操作系统运行环境"></a>1.3 操作系统运行环境</h3><p><img src="/2.png" alt="avatar"></p>
+<p><strong>内核空间</strong>：内核程序、核心态、特权指令<br><strong>用户空间</strong>：应用程序、用户态、非特权指令</p>
+<h4 id="1-3-1-时钟管理"><a href="#1-3-1-时钟管理" class="headerlink" title="1.3.1 时钟管理"></a>1.3.1 时钟管理</h4><p><strong>计时</strong>：提供系统时间<br><strong>时钟中断</strong>：进程切换</p>
+<h4 id="1-3-2-中断机制-exclamation"><a href="#1-3-2-中断机制-exclamation" class="headerlink" title="1.3.2 中断机制(:exclamation:)"></a>1.3.2 中断机制(:exclamation:)</h4><p><strong>目的</strong>：提高多道程序环境下CPU的利用率；解释：当需I&#x2F;O操作时，CPU只能等待，此时可以切换到别的程序</p>
+<p><strong>外中断</strong>：外部设备等因素</p>
+<p><strong>内中断</strong>：中断信号来源于当前指令</p>
+<p><strong>内中断分类</strong>：</p>
+<ol>
+<li><strong>陷阱&#x2F;陷入</strong>：由应用程序主动引发，CPU产生陷入指令</li>
+<li><strong>故障</strong>：由错误条件引发</li>
+<li><strong>终止</strong>：由致命错误引发</li>
+</ol>
+<p><strong>中断处理过程</strong>：锁到开锁之间不接受其它中断请求<br>注：关中断和开中断由硬件实现<br><img src="/3.png" alt="avatar"></p>
+<h4 id="1-3-3-原语"><a href="#1-3-3-原语" class="headerlink" title="1.3.3 原语"></a>1.3.3 原语</h4><p><strong>概念</strong>：内核空间封装好的常用程序段，包含若干条指令。用来完成某个特定功能，执行过程不会被中断（具有原子性，依靠关中断和开中断实现）</p>
+<p>用户态切换到核心态只有一种方式：中断（访管指令或系统调用）</p>
+<h4 id="1-3-4-系统调用"><a href="#1-3-4-系统调用" class="headerlink" title="1.3.4 系统调用"></a>1.3.4 系统调用</h4><p><strong>概念</strong>：提供一套接口，由操作系统实现，给应用程序调用，实现访问内核服务的方式</p>
+<p><strong>实现</strong>：<code>应用程序产生陷入指令</code>，调用接口，执行内核服务</p>
+<hr>
+<h2 id="二、进程管理"><a href="#二、进程管理" class="headerlink" title="二、进程管理"></a>二、进程管理</h2><h3 id="2-1-什么是进程"><a href="#2-1-什么是进程" class="headerlink" title="2.1 什么是进程"></a>2.1 什么是进程</h3><h4 id="2-1-1-基本概念"><a href="#2-1-1-基本概念" class="headerlink" title="2.1.1 基本概念"></a>2.1.1 基本概念</h4><p><strong>概念</strong>：是一个具有一定独立功能的程序关于某个数据集合的一次运行活动，是系统进行<code>资源分配和调度</code>的一个独立单位。</p>
+<h4 id="2-1-2-进程的结构与特征"><a href="#2-1-2-进程的结构与特征" class="headerlink" title="2.1.2 进程的结构与特征"></a>2.1.2 进程的结构与特征</h4><p><strong>结构</strong>：</p>
+<ol>
+<li><code>控制块(PCB)</code>,进程唯一标识符</li>
+<li>数据段：存放原始数据、中间数据</li>
+<li>程序段：存放在文本区域，可被多个程序共享，同一个应用程序之间共享程序段</li>
+</ol>
+<p><strong>特征</strong>：</p>
+<ol>
+<li><strong>动态性</strong>：创建而生，撤销结束</li>
+<li><strong>并发性</strong>：多个进程同时运行</li>
+<li><strong>独立性</strong>：独立资源分配</li>
+<li><strong>异步性</strong>：相互独立、互不干扰</li>
+</ol>
+<h4 id="2-1-3-进程与线程"><a href="#2-1-3-进程与线程" class="headerlink" title="2.1.3 进程与线程"></a>2.1.3 进程与线程</h4><p><strong>线程的概念</strong>：进程的轻型实体，也叫轻量级进程，是一系列活动按事先设定好的顺序依次执行的过程，一系列指令的集合；<code>线程是OS中运算调度的最小单位</code></p>
+<p><strong>为什么引入线程</strong>：提高系统的并发性；因为创建进程的成本比较高；线程可以再分为 <code>纤程/协程</code></p>
+<p><strong>重点</strong>：线程相比于进程，大大降低了创建、撤销和切换可执行实体的成本和难度。</p>
+<p><strong>线程的实现</strong>：类似进程创建，创建线程控制块</p>
+<ol>
+<li>用户级线程（ULT,User Level Thread）</li>
+<li>内核级线程（KLT,Kernel Level Thread）</li>
+</ol>
+<h3 id="2-2-进程如何运行"><a href="#2-2-进程如何运行" class="headerlink" title="2.2 进程如何运行"></a>2.2 进程如何运行</h3><h4 id="2-2-1-进程的状态"><a href="#2-2-1-进程的状态" class="headerlink" title="2.2.1 进程的状态"></a>2.2.1 进程的状态</h4><p><strong>进程的状态</strong>：</p>
+<ol>
+<li>就绪(Ready)</li>
+<li>执行(Running)</li>
+<li>阻塞(Blocked)</li>
+<li>创建(New)</li>
+<li>终止(Terminated)</li>
+</ol>
+<p><img src="/4.png" alt="avatar"></p>
+<h4 id="2-2-2-进程控制"><a href="#2-2-2-进程控制" class="headerlink" title="2.2.2 进程控制"></a>2.2.2 进程控制</h4><p><strong>概念</strong>：OS对进程实现有效的管理，包括创建新进程、撤销已有进程、挂起、阻塞、唤醒、进程切换等操作；<code>OS通过原语操作实现进程控制</code></p>
+<p><strong>内核三大支撑功能</strong>：中断处理、时钟管理、原语操作</p>
+<p><strong>原语操作举例</strong>：</p>
+<ol>
+<li>创建原语 create</li>
+<li>阻塞原语 block</li>
+<li>唤醒原语 wakeup</li>
+<li>撤销原语 destroy</li>
+</ol>
+<p><strong>挂起与激活</strong>：为了系统和用户观察和分析进程，<code>把进程从内存拿到外存</code><br>挂起原语suspend，激活原语active<br><img src="/5.png" alt="avatar"></p>
+<h4 id="2-2-3-进程调度"><a href="#2-2-3-进程调度" class="headerlink" title="2.2.3 进程调度"></a>2.2.3 进程调度</h4><p><strong>概念</strong>：根据一定的算法和原则将处理器资源进行重新分配</p>
+<p><strong>前提</strong>：作业&#x2F;进程数远远大于处理器个数</p>
+<p><strong>目的</strong>：提高资源利用率，减少处理器空闲时间</p>
+<p><strong>调度层次</strong>：</p>
+<ol>
+<li><strong>高级调度&#x2F;作业调度</strong>：把后备作业调入内存</li>
+<li><strong>中级调度&#x2F;内存调度</strong>：进程调至外存，条件合适再放入内存，在内外存对换区进行对换</li>
+<li><strong>低级调度&#x2F;进程调度</strong>：从就绪队列里选取进程分配处理机，频率较高</li>
+</ol>
+<p><img src="/6.png" alt="avatar"></p>
+<p><strong>调度过程</strong>：</p>
+<ol>
+<li><strong>保存镜像</strong>：记录进程现场信息</li>
+<li><strong>调度算法</strong>：确定分配处理机的原则</li>
+<li><strong>进程切换</strong>：分配处理机给其它进程</li>
+<li><strong>处理机回收</strong>：从进程收回处理机</li>
+</ol>
+<p><strong>调度算法指标</strong>：</p>
+<ol>
+<li><strong>CPU利用率</strong>：忙碌时间&#x2F;总时间</li>
+<li><strong>系统吞吐量</strong>：完成作业数&#x2F;总时间</li>
+<li><strong>周转时间</strong>：作业完成时间-提交时间</li>
+<li><strong>响应时间</strong>：提交请求到首次响应间隔</li>
+</ol>
+<h4 id="2-2-4-调度算法"><a href="#2-2-4-调度算法" class="headerlink" title="2.2.4 调度算法"></a>2.2.4 调度算法</h4><p><strong>总体介绍</strong>：</p>
+<ol>
+<li>先来先服务算法</li>
+<li>短作业优先</li>
+<li>高响应比优先调度算法</li>
+<li>优先级调度算法</li>
+<li>时间片轮转调度</li>
+<li>多级反馈队列调度</li>
+</ol>
+<p>1-4为作业调度，5-6为进程调度</p>
+<p><strong>先来先服务（FCFS）</strong>：</p>
+<ol>
+<li><strong>算法内容</strong>：调度作业&#x2F;就绪队列中最先入队者，等待操作完成或者阻塞</li>
+<li><strong>算法原则</strong>：按作业&#x2F;进程到达顺序服务</li>
+<li><strong>优缺点</strong>：1）有利于CPU繁忙型作业，充分利用CPU资源；2）不利于I&#x2F;O频繁型作业，操作耗时</li>
+</ol>
+<p>**短作业优先(SJF)**：</p>
+<ol>
+<li><strong>算法内容</strong>：所需时间最短的作业&#x2F;进程优先服务，根据系统估算的时间</li>
+<li><strong>算法原则</strong>：追求最少的平均周转时间</li>
+<li><strong>优缺点</strong>：1）平均周转时间小；2）长作业可能会产生饥饿</li>
+</ol>
+<p><strong>高响应比优先（HRRN）</strong>：</p>
+<ol>
+<li><strong>算法内容</strong>：结合FCFS和SJF，综合考虑等待时间和服务时间计算响应比，高的优先调度</li>
+<li><strong>算法原则</strong>：综合考虑作业&#x2F;进程的等待时间和服务时间 </li>
+<li><strong>相应比计算</strong>：相应比&#x3D;（等待时间+服务时间）&#x2F;服务时间</li>
+<li><strong>优缺点</strong>：等待时间越久，长作业更容易获得处理机</li>
+</ol>
+<p><strong>优先级调度算法（PSA）</strong>：</p>
+<ol>
+<li><strong>算法内容</strong>：按作业&#x2F;进程的优先级进行调度</li>
+<li><strong>算法原则</strong>：优先级最高的先调度</li>
+<li><strong>调度方式</strong>：抢占&#x2F;非抢占</li>
+<li><strong>优先级设定原则</strong>：系统&gt;用户；交互型&gt;非交互型；I&#x2F;O型&gt;计算型</li>
+<li><strong>优缺点</strong>：低优先级可能产生饥饿</li>
+</ol>
+<p><strong>时间片轮转调度(RR,Round-Robin)</strong>:</p>
+<ol>
+<li><strong>算法内容</strong>：按进程到达就绪队列的顺序，轮流分配一个时间片去执行，时间用完则剥夺</li>
+<li><strong>算法原则</strong>：公平、轮流为每个进程服务，进程和在一定时间内都能得到响应</li>
+<li><strong>调度方式</strong>：抢占式，由时钟中断确定时间到；时间到，硬件设备产生中断</li>
+<li><strong>时间片决定因素</strong>：系统响应时间、就绪队列进程数量、系统处理能力</li>
+<li><strong>优缺点</strong>：1）公平，响应快，适用于分时系统；2）时间片太大，相当于FCFS；太小，处理机切换频繁，开销增大。</li>
+</ol>
+<p><strong>多级反馈队列调度算法（MFQ）</strong>：</p>
+<ol>
+<li><strong>算法内容</strong>：设置多个按优先级排序的就绪队列，优先级从高到底，时间片从小到大</li>
+<li><strong>算法原则</strong>：集成前几种算法优点</li>
+<li><strong>调度方式</strong>：抢占式</li>
+<li><strong>优缺点</strong>：1）对各种类型相对公平，能够快速响应；2）终端型作业用户，短作业优先；3）批处理用户，周转时间短；4）长批处理用户，在前几个队列部分执行</li>
+</ol>
+<p><img src="/7.png" alt="avatar"></p>
+<h4 id="2-2-5-进程通信"><a href="#2-2-5-进程通信" class="headerlink" title="2.2.5 进程通信"></a>2.2.5 进程通信</h4><p><strong>概念</strong>：进程间的信息交换；各进程内存空间彼此独立，一个进程不能随意访问其它进程的地址空间</p>
+<p><strong>特点</strong>：</p>
+<ol>
+<li>共享存储</li>
+<li>消息传递</li>
+<li>管道通信</li>
+</ol>
+<p><strong>共享存储</strong>：</p>
+<ul>
+<li>基于<code>共享数据结构</code>的通信方式：多个进程共用某个数据结构（OS提供并控制）；低级通信，传递数据量少，效率低</li>
+<li>基于<code>共享存储区</code>的通信方式：多个进程公用内存中的一块存储区域；由进程控制数据的形式与方法；高级通信，可以传递大量数据，效率高</li>
+</ul>
+<p><code>收发双方不可见，存在安全隐患</code></p>
+<div style="text-align:center;">
+    <img src="8.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
+</div>
+
+<p><strong>消息传递</strong>：</p>
+<ul>
+<li>直接通信：点到点，使用操作系统提供的原语（send&#x2F;receive）；指名收发双方进程的ID，每个进程维护一个消息缓冲队列</li>
+</ul>
+<div style="text-align:center;">
+    <img src="9.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
+</div>
+
+<ul>
+<li>间接通信：广播信箱，基于原语，以信箱作为媒介；可以广播，容易建立双向通信链</li>
+</ul>
+<div style="text-align:center;">
+<img src="10.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
+</div>
+
+<p><strong>管道通信（Pipe）</strong>:</p>
+<ul>
+<li><strong>管道本质</strong>：用于连续读&#x2F;写进程的共享文件，pipe文件；本质上是内存中固定大小的缓冲区，例如linux系统是4K;</li>
+<li><strong>半双工通信</strong>：同一时段只能单向通信，双工通信需要两个管道；先进先出组织数据传输；通过系统调用read()&#x2F;write()函数进行读写操作</li>
+</ul>
+<div style="text-align:center;">
+<img src="11.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
+</div>
+
+
+<h4 id="2-2-6-进程同步"><a href="#2-2-6-进程同步" class="headerlink" title="2.2.6 进程同步"></a>2.2.6 进程同步</h4><p><strong>基本概念</strong>：协调进程间的相互制约关系，使他们按照预期的方式执行的过程</p>
+<ul>
+<li>间接相互制约关系-<strong>互斥</strong>：进程排他性地访问共享资源&#x2F;临界资源&#x2F;临界区（一个意思）</li>
+<li>直接相互制约关系-<strong>同步</strong>：进程之间相互合作，比如管道通信</li>
+</ul>
+<p><strong>互斥访问过程</strong>：</p>
+<ol>
+<li><strong>进入区</strong>：尝试进入临界区，成功则加锁，其余进程进入阻塞队列</li>
+<li><strong>临界区</strong>：访问共享资源</li>
+<li><strong>退出区</strong>：解锁，唤醒其它阻塞进程</li>
+<li><strong>剩余区</strong>：执行其它代码</li>
+</ol>
+<p><strong>互斥访问原则</strong>：</p>
+<ol>
+<li><strong>空闲让进</strong>：临界区空闲，允许一个进程进入</li>
+<li><strong>忙则等待</strong>：临界区已有进程，其它进程等待（阻塞）</li>
+<li><strong>有限等待</strong>：等待时间有限</li>
+<li><strong>让权等待</strong>：等待时让出CPU执行权</li>
+</ol>
+<h4 id="2-2-7-软件实现互斥的方法"><a href="#2-2-7-软件实现互斥的方法" class="headerlink" title="2.2.7 软件实现互斥的方法"></a>2.2.7 软件实现互斥的方法</h4><p><strong>单标志法（了解）</strong>：设置公共变量turn,用于指示被允许进入的进程编号；弊端：违背“等闲让进”</p>
+<p><strong>双标志法先检查（了解）</strong>：设置两个变量；弊端：违背“忙则等待”，可能两个进程同时判断标志</p>
+<div style="text-align:center;">
+<img src="12.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
+</div>
+
+
+<p><strong>双标志法后检查（了解）</strong>：先设置变量数值，后判断变量标志；弊端：违背空闲让进、有限等待</p>
+<div style="text-align:center;">
+<img src="13.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
+</div>
+
+<p><strong>皮特森算法（重要）</strong>：设置双标志+单标志；while循环会占用CPU,因此会出现忙等。</p>
+<div style="text-align:center;">
+<img src="14.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
+</div>
+
+<h4 id="2-2-8-硬件实现互斥的方法（实际中不用软件的）"><a href="#2-2-8-硬件实现互斥的方法（实际中不用软件的）" class="headerlink" title="2.2.8 硬件实现互斥的方法（实际中不用软件的）"></a>2.2.8 硬件实现互斥的方法（实际中不用软件的）</h4><p><strong>中断屏蔽方法：关中断&#x2F;开中断</strong>：禁止一切中断，CPU执行完临界区之前不会切换；不适用于多处理机，当前处理机的其它进程无法访问，别的处理机可以。</p>
+<p><strong>TS指令（Test_And_Set）</strong>：判断加锁，使用原子操作；与皮特森算法效果差不多。</p>
+<p><strong>Swap指令</strong>：交换两个加锁标志的变量，原子操作（原子操作锁定读取的数据，别的处理机无法读取），违背让权等待。</p>
+<h4 id="2-2-9-信号量机制（Semaphore）-exclamation"><a href="#2-2-9-信号量机制（Semaphore）-exclamation" class="headerlink" title="2.2.9 信号量机制（Semaphore）(:exclamation:)"></a>2.2.9 信号量机制（Semaphore）(:exclamation:)</h4><p><strong>作用</strong>：表示可用资源数量</p>
+<p><strong>PV操作</strong>：</p>
+<ul>
+<li><strong>P操作</strong>：wait原语，进程等待</li>
+<li><strong>V操作</strong>：signal原语，唤醒等待进程</li>
+</ul>
+<p><strong>信号量类型</strong>：</p>
+<ul>
+<li><strong>整型信号量</strong>：一个值；违背“让权等待”，进程需要自旋判断</li>
+<li><strong>记录型信号量</strong>：一个结构体；进程进入阻塞状态，不会忙等</li>
+</ul>
+<div style="text-align:center;">
+<img src="15.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 60%; height: auto;">
+</div>
+
+
+<h4 id="2-2-10-管程（Monitor）"><a href="#2-2-10-管程（Monitor）" class="headerlink" title="2.2.10 管程（Monitor）"></a>2.2.10 管程（Monitor）</h4><p><strong>概念</strong>：字面上理解为”管理进程”；<code>实现进程同步的工具</code>。是由代表共享资源的数据结构和一组过程（进行PV操作的函数）组成的管理程序（封装）</p>
+<p><strong>管程的组成</strong>：</p>
+<ol>
+<li>名称</li>
+<li>局部于管程内部的共享数据结构</li>
+<li>对该数据结构操作的一组过程（函数）</li>
+<li>共享数据的初始化语句</li>
+</ol>
+<p><strong>基本特性</strong>：</p>
+<ol>
+<li>模块化的基本程序单位，可以单独编译，不一定非要有进程</li>
+<li>是一种抽象数据类型，包含数据和操作，通俗上的类或类的实例</li>
+<li>信息掩蔽，共享数据只能被管程内的过程访问</li>
+</ol>
+<div style="text-align:center;">
+<img src="16.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
+</div>
+
+
+<h4 id="2-2-11-死锁问题"><a href="#2-2-11-死锁问题" class="headerlink" title="2.2.11 死锁问题"></a>2.2.11 死锁问题</h4><p><strong>定义</strong>：所有进程都因无法访问共享资源而造成阻塞的现象，没有外力作用，进程无法推进</p>
+<p><strong>产生原因</strong>：</p>
+<ol>
+<li>系统资源的竞争</li>
+<li>系统推进顺序非法</li>
+</ol>
+<p><strong>产生的必要条件</strong>：</p>
+<ol>
+<li><strong>互斥条件</strong>：共享资源的排他性访问</li>
+<li><strong>不剥夺条件</strong>：访问时该共享资源不会被剥夺</li>
+<li><strong>请求与保持条件</strong>：保持当前资源时请求另一个资源</li>
+<li><strong>循环等待条件</strong>：存在共享资源的循环等待链</li>
+</ol>
+<div style="text-align:center;">
+<img src="17.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
+</div>
+
+<p><strong>死锁预防策略（程序运行之前）</strong>：</p>
+<ul>
+<li><p><strong>破坏互斥条件</strong>：将互斥访问的资源改为同时共享访问；独占锁改为共享锁；不是所有资源都能改为可共享</p>
+<div style="text-align:center;">
+<img src="18.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
+</div>
+</li>
+<li><p><strong>破坏不剥夺条件</strong>：请求新资源不满足时必须释放已有资源；由OS协助强制剥夺某进程持有的资源；<code>缺点：实现复杂，代价高，可能导致原进程任务无法执行</code></p>
+</li>
+<li><p><strong>破坏请求并保持条件</strong>：进程开始运行时一次性申请到所需资源，阶段性请求和释放资源；</p>
+</li>
+<li><p><strong>破坏循环等待条件</strong>：对所有资源进行排序，按序号请求资源；<code>弊端：资源的编号应相对稳定，限制了新设备增加；进程使用资源的顺序可能与系统编号不同</code></p>
+</li>
+</ul>
+<p><strong>死锁的处理策略（程序运行之后）</strong></p>
+<ol>
+<li><code>安全状态一定不出现死锁</code></li>
+<li>安全性算法-银行家算法：系统预判进程请求是否会导致不安全状态；是则拒绝请求</li>
+</ol>
+<p><strong>死锁的检测</strong>：</p>
+<ul>
+<li><p><strong>死锁检测</strong>：需要一种数据结构，保存有关资源的请求和分配信息；提供一种算法，利用上述信息检测是否形成了死锁</p>
+<ul>
+<li><strong>数据结构</strong>：资源分配图</li>
+<li><strong>死锁定理</strong>：当且仅当资源分配图是完全不可简化的；简化思路：找到既不是孤点又不阻塞的进程，去除其入边和出边<div style="text-align:center;">
+<img src="19.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
+</div></li>
+</ul>
+</li>
+<li><p><strong>死锁解除</strong>：资源剥夺，撤销进程，进程回退</p>
+</li>
+</ul>
+<hr>
+<h2 id="三、内存管理"><a href="#三、内存管理" class="headerlink" title="三、内存管理"></a>三、内存管理</h2><h3 id="3-1-内存管理"><a href="#3-1-内存管理" class="headerlink" title="3.1 内存管理"></a>3.1 内存管理</h3><h4 id="3-1-1-存储器的多层结构"><a href="#3-1-1-存储器的多层结构" class="headerlink" title="3.1.1 存储器的多层结构"></a>3.1.1 存储器的多层结构</h4><p>1.寄存器；2.高速缓存（单独一个固件）；3.主存储器（内存条）；4.硬盘缓存（交换区）；5.固定磁盘（固态硬盘）；6.可移动存储介质(U盘)</p>
+<div style="text-align:center;">
+<img src="20.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
+</div>
+
+<h4 id="3-1-2-进程运行的基本原理"><a href="#3-1-2-进程运行的基本原理" class="headerlink" title="3.1.2 进程运行的基本原理"></a>3.1.2 进程运行的基本原理</h4><ol>
+<li>编译：代码编译成机器可以看懂的语言</li>
+<li>链接：底层的库和代码整合一起</li>
+<li>装入：把装入模块加载到内存<div style="text-align:center;">
+<img src="21.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 70%; height: auto;">
+</div></li>
+</ol>
+<p><strong>程序的链接</strong>：</p>
+<ul>
+<li><strong>静态链接</strong>：装入程序之前已经完成了链接</li>
+<li><strong>装入时动态链接</strong>：装入程序一边装入一边链接</li>
+<li><strong>运行时动态链接</strong>：程序比较大，例如一个游戏，程序运行时候调用链接程序装入。</li>
+</ul>
+<p><strong>程序的装入</strong>：</p>
+<ul>
+<li><strong>绝对装入</strong>：一个程序，按照绝对地址，一次性申请够</li>
+<li><strong>可重定位装入</strong>：按照相对地址，一次性申请够</li>
+<li><strong>动态运行时装入</strong>：只装入部分代码，运行过程中再申请<br><code>逻辑地址</code>：每个程序内部的地址从0开始<br><code>物理地址</code>：物理硬件实际对应的地址<br><code>内存保护</code>：记录物理地址，防止越界</li>
+</ul>
+<p><strong>内存扩充的方法</strong>：</p>
+<ul>
+<li><strong>覆盖</strong>：设置有覆盖区；例如一个1G的内存空间，设置100M的覆盖区，可以运行加载两个G的程序</li>
+<li><strong>交换</strong>：设置交换区，即硬盘缓存区；不活跃的部分放入，需要时调入。</li>
+</ul>
+<h4 id="3-1-3-连续分配管理方式"><a href="#3-1-3-连续分配管理方式" class="headerlink" title="3.1.3 连续分配管理方式"></a>3.1.3 连续分配管理方式</h4><p>三种方式：单一连续分配，固定分区分配，动态分区分配</p>
+<p><strong>单一连续分配</strong>：整个用户区都分配给一个进程</p>
+<ul>
+<li><strong>优点</strong>：实现简单，无外部碎片，不一定需要内存保护</li>
+<li><strong>缺点</strong>：只适用于单用户，单任务OS；有内部碎片，存储器利用率低</li>
+</ul>
+<p><strong>固定分区分配</strong>：将用户空间划分为若干个大小固定的部分，每个分区可装入一道作业</p>
+<ul>
+<li><strong>优点</strong>：实现简单，无外部碎片</li>
+<li><strong>缺点</strong>：会产生内部碎片，降低利用率；较大用户程序，需要采用覆盖技术，降低了性能。</li>
+</ul>
+<p><strong>动态分区分配</strong>：根据进程的大小进行分配</p>
+<div style="text-align:center;">
+<img src="22.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
+</div>
+
+<ul>
+<li><p><strong>如何记录内存的使用情况？</strong>：设置空闲分区表，记录空闲位置</p>
+<div style="text-align:center;">
+<img src="23.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
+</div>
+</li>
+<li><p><strong>选择哪个分区分配给新进程？</strong>：</p>
+<ol>
+<li><strong>首次适应算法</strong>：从低地址查找合适空间</li>
+<li><strong>最佳适应算法</strong>：优先选择最小空闲空间</li>
+<li><strong>最坏适应算法</strong>：优先使用最大连续空间</li>
+<li><strong>临近适应算法</strong>：从上次查找处向后查找<div style="text-align:center;">
+<img src="24.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 60%; height: auto;">
+</div></li>
+</ol>
+</li>
+<li><p><strong>如何回收已使用的分区</strong>：回收后对前后的分区进行合并</p>
+</li>
+</ul>
+<h4 id="3-1-4-非连续分配管理方式"><a href="#3-1-4-非连续分配管理方式" class="headerlink" title="3.1.4 非连续分配管理方式"></a>3.1.4 非连续分配管理方式</h4><p><strong>管理方式</strong>：</p>
+<ol>
+<li>基本分页存储管理方式</li>
+<li>基本分段存储管理方式</li>
+<li>段页式管理方式</li>
+</ol>
+<p><strong>基本分页存储管理方式</strong>：</p>
+<ul>
+<li><p><strong>定义</strong>：将内存分为大小相等的分区，比较小的分区（4k）；每一部分称为页框&#x2F;页帧&#x2F;内存块&#x2F;物理块；OS以页框为基本单位分配内存</p>
+</li>
+<li><p><strong>映射方式</strong>：页表；逻辑地址 -&gt; 物理地址空间；具体实现依赖<code>基本地址变换机构（硬件支持）</code></p>
+<div style="text-align:center;">
+<img src="25.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
+</div>
+</li>
+<li><p><strong>基本地址变换机构</strong>：</p>
+<ul>
+<li>物理地址 &#x3D; （页号 -&gt; 块号） + 偏移量</li>
+<li>页号 &#x3D; 逻辑地址  &#x2F; 页面长度（4K）</li>
+<li>偏移量 &#x3D; 逻辑地址 % 页面长度</li>
+<li><code>页号 = 逻辑地址 &gt;&gt; 12；偏移量 = 逻辑地址 &amp; 4095</code></li>
+</ul>
+</li>
+<li><p><strong>快表</strong>：</p>
+<ul>
+<li><code>原因</code>：对内存中做一次运算需要访问两次内存，效率较低（一次读页表，一次读操作地址）</li>
+<li><code>方案</code>：将部分慢表放入<code>高速缓存区</code>区中，CPU直接读取高速缓存区；</li>
+<li>慢表是一维数组，因为连续；<code>快表是二维数据数组</code>；根据局部性原则，将进程中之前访问过的地址放入快表，不能完全覆盖，缺失部分需要访问慢表<div style="text-align:center;">
+<img src="26.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
+</div></li>
+</ul>
+</li>
+<li><p><strong>多级页表</strong>：</p>
+<ul>
+<li><code>原因</code>：32位机器，前20位为页号，最多可有1M的条目，一个完整页表需要占据空间4MB,空间消耗较大。</li>
+<li><code>方案</code>：分成多级页表，可以不使用连续内存；<div style="text-align:center;">
+<img src="27.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
+</div>
+<div style="text-align:center;">
+<img src="28.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
+</div></li>
+</ul>
+</li>
+</ul>
+<p><strong>基本分段存储管理方式</strong>：</p>
+<ul>
+<li><p><strong>动机</strong>：连续地址不好管理，将进程按照一定规则划分成多个模块，编译器完成这一过程。</p>
+<div style="text-align:center;">
+<img src="29.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
+</div>
+</li>
+<li><p>段是逻辑单位的划分，页是对物理物理单位的划分；页表是一维，段表是二维；段表一般比较小，直接放入寄存器中</p>
+</li>
+</ul>
+<p><strong>段页式管理方式</strong>：</p>
+<ul>
+<li><strong>分段与分页的优缺点</strong>：<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">有点</th>
+<th align="center">缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">分页管理</td>
+<td align="center">内存利用率高，不产生外部碎片</td>
+<td align="center">不容易实现逻辑模块信息共享和保护</td>
+</tr>
+<tr>
+<td align="center">分段管理</td>
+<td align="center">容易按照逻辑模块实现信息共享和保护</td>
+<td align="center">段长较大时，不便分配空间</td>
+</tr>
+</tbody></table>
+</li>
+<li><strong>管理方式</strong>：<ul>
+<li>先分段，再分页</li>
+<li>1个进程对应一个段表</li>
+<li>1个段表<strong>项</strong>对应一个页表</li>
+<li>1个页表对应多个物理块</li>
+</ul>
+</li>
+</ul>
+<div style="text-align:center;">
+<img src="30.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
+</div>
+
+<h3 id="3-2-虚拟内存管理"><a href="#3-2-虚拟内存管理" class="headerlink" title="3.2 虚拟内存管理"></a>3.2 虚拟内存管理</h3><h4 id="3-2-1-基本概念"><a href="#3-2-1-基本概念" class="headerlink" title="3.2.1 基本概念"></a>3.2.1 基本概念</h4><p><strong>概念</strong>：外存+内存之和；具有请求调入和置换功能，从逻辑上对内存容量加以扩充的一种存储器系统</p>
+<p><strong>局部性原理</strong>：催生出缓存技术</p>
+<p><strong>虚拟内存的特征</strong>：</p>
+<ul>
+<li><strong>多次性</strong>：分多次动态请求调入内存</li>
+<li><strong>对换性</strong>：需要时换入</li>
+<li><strong>虚拟性</strong>：逻辑上扩充内存空间</li>
+</ul>
+<p><strong>请求分页管理方式</strong>：</p>
+<ul>
+<li><p><strong>页表机制</strong>：状态位（是否调入内存）；访问字段（访问次数）；修改位（是否修改）；外存地址</p>
+<div style="text-align:center;">
+<img src="31.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
+</div>
+</li>
+<li><p><strong>缺页中断机制</strong>：内中断</p>
+</li>
+<li><p><strong>地址变换机构</strong>：</p>
+<ul>
+<li>请求调页、判断是否在内存</li>
+<li>可能需要页面置换</li>
+<li>新增&#x2F;修改页表项</li>
+<li>热点表项同步到快表</li>
+</ul>
+</li>
+</ul>
+<p><strong>页面置换算法</strong>：</p>
+<ul>
+<li>最佳置换算法OPT</li>
+<li>先进先出置换算法FIFO</li>
+<li>最近最少使用置换算法LRU</li>
+<li>时钟置换算法NUR</li>
+<li><strong>改进型时钟置换算法</strong>：（访问位，修改位），第一轮找（0，0），第二轮找（0，1），并把修改访问位为0，第三轮找（0，0），第四轮找（0，1）；</li>
+</ul>
+<div style="text-align:center;">
+<img src="32.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
+</div>
+
+<p><strong>页面分配策略</strong>：</p>
+<ul>
+<li><strong>考虑因素</strong>：<ol>
+<li>分配空间小，进程数量多，并发性能高</li>
+<li>进程在主存中的页数少，缺页率高</li>
+</ol>
+</li>
+<li><strong>分配策略</strong>：<ol>
+<li>固定分配局部置换：给用户进程分配固定的区域，局部进行页面置换</li>
+<li>可变分配全局置换：只要缺页，可以继续向操作系统申请内存</li>
+<li><strong>可变分配局部置换</strong>：可以自己置换，也可以向操作系统申请</li>
+</ol>
+</li>
+</ul>
+<h4 id="3-2-2-虚拟内存的实现"><a href="#3-2-2-虚拟内存的实现" class="headerlink" title="3.2.2 虚拟内存的实现"></a>3.2.2 虚拟内存的实现</h4><hr>
+<h2 id="四、I-O设备管理"><a href="#四、I-O设备管理" class="headerlink" title="四、I&#x2F;O设备管理"></a>四、I&#x2F;O设备管理</h2><h2 id="五、文件管理"><a href="#五、文件管理" class="headerlink" title="五、文件管理"></a>五、文件管理</h2>
+  </div>
+  <div id="gitalk-container"></div>
+</div>
+
+<script>
+  
+Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
+  dragToClose: true,
+  Toolbar: true,
+  closeButton: "top",
+  Image: {
+    zoom: true,
+  },
+  on: {
+    initCarousel: (fancybox) => {
+      const slide = fancybox.Carousel.slides[fancybox.Carousel.page];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+    "Carousel.change": (fancybox, carousel, to, from) => {
+      const slide = carousel.slides[to];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+  },
+});
+</script>
+
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 9999;
+        /* width: 600px !important; */
+        min-width: 0%;
+        max-width: 90%;
+        max-height: 80%;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            max-width: 88%
+        }
+    }
+</style>
+
+    <div class="post-paging">
+    
+
+    
+    <a href="/hexo-mysql/">
+        <div class="post-paging-next">
+            <span>下一篇</span>
+            <p>MySQL学习记录</p>
+        </div>
+    </a>
+    
+</div>
+</div>
+		
+<div class="footer">
+	<div class="Copyright">
+		©2024 By XQuisiter. 
+		<!-- 主题：<astyle="text-decoration: none;display: contents; color: #898F9F;"
+			href="https://github.com/79e/hexo-theme-quiet">Quiet</a> -->
+	</div>
+	<div class="contact">
+		
+		<a target="_blank" rel="noopener" href="https://github.com/79E/hexo-theme-quiet">
+			<img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+		</a>
+		
+		<a target="_blank" rel="noopener" href="https://www.artstation.com/xupeiyuan2/collections">
+			<img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+		</a>
+		
+	</div>
+</div>
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            transition: border .5s;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $( '#js-go_top' )
+	.gotoTop( {
+		offset: 500,
+		speed: 300,
+		animationShow: {
+			'transform': 'translate(0,0)',
+			'transition': 'transform .5s ease-in-out'
+		},
+		animationHide: {
+			'transform': 'translate(100px,0)',
+			'transition': 'transform .5s ease-in-out'
+		}
+	} );
+</script>
+
+
+<script>
+	console.log('\n %c Hexo-Quiet 主题 %c https://github.com/79e/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+</script>
+	</body>
+</html>
+
