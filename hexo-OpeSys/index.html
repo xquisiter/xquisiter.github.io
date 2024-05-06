@@ -325,7 +325,7 @@
       </div>
     
 
-    <h2 id="一、操作系统概述"><a href="#一、操作系统概述" class="headerlink" title="一、操作系统概述"></a>一、操作系统概述</h2><h3 id="1-1-操作系统的特征"><a href="#1-1-操作系统的特征" class="headerlink" title="1.1 操作系统的特征"></a>1.1 操作系统的特征</h3><p>并发是虚拟和异步的前提，并发与共享互为前提<br><img src="/.com//1.png" alt="图片"></p>
+    <h2 id="一、操作系统概述"><a href="#一、操作系统概述" class="headerlink" title="一、操作系统概述"></a>一、操作系统概述</h2><h3 id="1-1-操作系统的特征"><a href="#1-1-操作系统的特征" class="headerlink" title="1.1 操作系统的特征"></a>1.1 操作系统的特征</h3><p>并发是虚拟和异步的前提，并发与共享互为前提<br><img src="/1.png" alt="图片"></p>
 <h4 id="1-1-1-并发-exclamation"><a href="#1-1-1-并发-exclamation" class="headerlink" title="1.1.1 并发(:exclamation:)"></a>1.1.1 并发(:exclamation:)</h4><p><strong>概念</strong>：同一<code>时间段</code>执行和调度程序的能力。宏观上为同时执行多个程序；微观上表现为多道程序间高速切换，分时交替执行。</p>
 <p><strong>与并行区分</strong>：并行是同一<code>时刻</code>发生的事件数量。</p>
 <h4 id="1-1-2-共享"><a href="#1-1-2-共享" class="headerlink" title="1.1.2 共享"></a>1.1.2 共享</h4><p><strong>概念</strong>：系统中的资源供多个<code>并发执行</code>的应用程序共同使用。</p>
@@ -353,7 +353,7 @@
 </ol>
 <h4 id="1-2-3-网络操作系统与分布式计算机系统"><a href="#1-2-3-网络操作系统与分布式计算机系统" class="headerlink" title="1.2.3 网络操作系统与分布式计算机系统"></a>1.2.3 网络操作系统与分布式计算机系统</h4><p><strong>网络操作系统</strong>：资源共享，远程通信。</p>
 <p><strong>分布式操作系统</strong>：分布性，并行性。</p>
-<h3 id="1-3-操作系统运行环境"><a href="#1-3-操作系统运行环境" class="headerlink" title="1.3 操作系统运行环境"></a>1.3 操作系统运行环境</h3><p><img src="/.com//2.png" alt="avatar"></p>
+<h3 id="1-3-操作系统运行环境"><a href="#1-3-操作系统运行环境" class="headerlink" title="1.3 操作系统运行环境"></a>1.3 操作系统运行环境</h3><p><img src="/2.png" alt="avatar"></p>
 <p><strong>内核空间</strong>：内核程序、核心态、特权指令<br><strong>用户空间</strong>：应用程序、用户态、非特权指令</p>
 <h4 id="1-3-1-时钟管理"><a href="#1-3-1-时钟管理" class="headerlink" title="1.3.1 时钟管理"></a>1.3.1 时钟管理</h4><p><strong>计时</strong>：提供系统时间<br><strong>时钟中断</strong>：进程切换</p>
 <h4 id="1-3-2-中断机制-exclamation"><a href="#1-3-2-中断机制-exclamation" class="headerlink" title="1.3.2 中断机制(:exclamation:)"></a>1.3.2 中断机制(:exclamation:)</h4><p><strong>目的</strong>：提高多道程序环境下CPU的利用率；解释：当需I&#x2F;O操作时，CPU只能等待，此时可以切换到别的程序</p>
@@ -365,7 +365,7 @@
 <li><strong>故障</strong>：由错误条件引发</li>
 <li><strong>终止</strong>：由致命错误引发</li>
 </ol>
-<p><strong>中断处理过程</strong>：锁到开锁之间不接受其它中断请求<br>注：关中断和开中断由硬件实现<br><img src="/.com//3.png" alt="avatar"></p>
+<p><strong>中断处理过程</strong>：锁到开锁之间不接受其它中断请求<br>注：关中断和开中断由硬件实现<br><img src="/3.png" alt="avatar"></p>
 <h4 id="1-3-3-原语"><a href="#1-3-3-原语" class="headerlink" title="1.3.3 原语"></a>1.3.3 原语</h4><p><strong>概念</strong>：内核空间封装好的常用程序段，包含若干条指令。用来完成某个特定功能，执行过程不会被中断（具有原子性，依靠关中断和开中断实现）</p>
 <p>用户态切换到核心态只有一种方式：中断（访管指令或系统调用）</p>
 <h4 id="1-3-4-系统调用"><a href="#1-3-4-系统调用" class="headerlink" title="1.3.4 系统调用"></a>1.3.4 系统调用</h4><p><strong>概念</strong>：提供一套接口，由操作系统实现，给应用程序调用，实现访问内核服务的方式</p>
@@ -401,7 +401,7 @@
 <li>创建(New)</li>
 <li>终止(Terminated)</li>
 </ol>
-<p><img src="/.com//4.png" alt="avatar"></p>
+<p><img src="/4.png" alt="avatar"></p>
 <h4 id="2-2-2-进程控制"><a href="#2-2-2-进程控制" class="headerlink" title="2.2.2 进程控制"></a>2.2.2 进程控制</h4><p><strong>概念</strong>：OS对进程实现有效的管理，包括创建新进程、撤销已有进程、挂起、阻塞、唤醒、进程切换等操作；<code>OS通过原语操作实现进程控制</code></p>
 <p><strong>内核三大支撑功能</strong>：中断处理、时钟管理、原语操作</p>
 <p><strong>原语操作举例</strong>：</p>
@@ -411,7 +411,7 @@
 <li>唤醒原语 wakeup</li>
 <li>撤销原语 destroy</li>
 </ol>
-<p><strong>挂起与激活</strong>：为了系统和用户观察和分析进程，<code>把进程从内存拿到外存</code><br>挂起原语suspend，激活原语active<br><img src="/.com//5.png" alt="avatar"></p>
+<p><strong>挂起与激活</strong>：为了系统和用户观察和分析进程，<code>把进程从内存拿到外存</code><br>挂起原语suspend，激活原语active<br><img src="/5.png" alt="avatar"></p>
 <h4 id="2-2-3-进程调度"><a href="#2-2-3-进程调度" class="headerlink" title="2.2.3 进程调度"></a>2.2.3 进程调度</h4><p><strong>概念</strong>：根据一定的算法和原则将处理器资源进行重新分配</p>
 <p><strong>前提</strong>：作业&#x2F;进程数远远大于处理器个数</p>
 <p><strong>目的</strong>：提高资源利用率，减少处理器空闲时间</p>
@@ -421,7 +421,7 @@
 <li><strong>中级调度&#x2F;内存调度</strong>：进程调至外存，条件合适再放入内存，在内外存对换区进行对换</li>
 <li><strong>低级调度&#x2F;进程调度</strong>：从就绪队列里选取进程分配处理机，频率较高</li>
 </ol>
-<p><img src="/.com//6.png" alt="avatar"></p>
+<p><img src="/6.png" alt="avatar"></p>
 <p><strong>调度过程</strong>：</p>
 <ol>
 <li><strong>保存镜像</strong>：记录进程现场信息</li>
@@ -488,7 +488,7 @@
 <li><strong>调度方式</strong>：抢占式</li>
 <li><strong>优缺点</strong>：1）对各种类型相对公平，能够快速响应；2）终端型作业用户，短作业优先；3）批处理用户，周转时间短；4）长批处理用户，在前几个队列部分执行</li>
 </ol>
-<p><img src="/.com//7.png" alt="avatar"></p>
+<p><img src="/7.png" alt="avatar"></p>
 <h4 id="2-2-5-进程通信"><a href="#2-2-5-进程通信" class="headerlink" title="2.2.5 进程通信"></a>2.2.5 进程通信</h4><p><strong>概念</strong>：进程间的信息交换；各进程内存空间彼此独立，一个进程不能随意访问其它进程的地址空间</p>
 <p><strong>特点</strong>：</p>
 <ol>
@@ -503,7 +503,7 @@
 </ul>
 <p><code>收发双方不可见，存在安全隐患</code></p>
 <div style="text-align:center;">
-    <img src="/.com//8.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
+    <img src="8.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
 </div>
 
 <p><strong>消息传递</strong>：</p>
@@ -511,14 +511,14 @@
 <li>直接通信：点到点，使用操作系统提供的原语（send&#x2F;receive）；指名收发双方进程的ID，每个进程维护一个消息缓冲队列</li>
 </ul>
 <div style="text-align:center;">
-    <img src="/.com//9.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
+    <img src="9.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
 </div>
 
 <ul>
 <li>间接通信：广播信箱，基于原语，以信箱作为媒介；可以广播，容易建立双向通信链</li>
 </ul>
 <div style="text-align:center;">
-<img src="/.com//10.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
+<img src="10.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
 </div>
 
 <p><strong>管道通信（Pipe）</strong>:</p>
@@ -527,7 +527,7 @@
 <li><strong>半双工通信</strong>：同一时段只能单向通信，双工通信需要两个管道；先进先出组织数据传输；通过系统调用read()&#x2F;write()函数进行读写操作</li>
 </ul>
 <div style="text-align:center;">
-<img src="/.com//11.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
+<img src="11.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
 </div>
 
 
@@ -553,18 +553,18 @@
 <h4 id="2-2-7-软件实现互斥的方法"><a href="#2-2-7-软件实现互斥的方法" class="headerlink" title="2.2.7 软件实现互斥的方法"></a>2.2.7 软件实现互斥的方法</h4><p><strong>单标志法（了解）</strong>：设置公共变量turn,用于指示被允许进入的进程编号；弊端：违背“等闲让进”</p>
 <p><strong>双标志法先检查（了解）</strong>：设置两个变量；弊端：违背“忙则等待”，可能两个进程同时判断标志</p>
 <div style="text-align:center;">
-<img src="/.com//12.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
+<img src="12.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
 </div>
 
 
 <p><strong>双标志法后检查（了解）</strong>：先设置变量数值，后判断变量标志；弊端：违背空闲让进、有限等待</p>
 <div style="text-align:center;">
-<img src="/.com//13.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
+<img src="13.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
 </div>
 
 <p><strong>皮特森算法（重要）</strong>：设置双标志+单标志；while循环会占用CPU,因此会出现忙等。</p>
 <div style="text-align:center;">
-<img src="/.com//14.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
+<img src="14.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
 </div>
 
 <h4 id="2-2-8-硬件实现互斥的方法（实际中不用软件的）"><a href="#2-2-8-硬件实现互斥的方法（实际中不用软件的）" class="headerlink" title="2.2.8 硬件实现互斥的方法（实际中不用软件的）"></a>2.2.8 硬件实现互斥的方法（实际中不用软件的）</h4><p><strong>中断屏蔽方法：关中断&#x2F;开中断</strong>：禁止一切中断，CPU执行完临界区之前不会切换；不适用于多处理机，当前处理机的其它进程无法访问，别的处理机可以。</p>
@@ -582,7 +582,7 @@
 <li><strong>记录型信号量</strong>：一个结构体；进程进入阻塞状态，不会忙等</li>
 </ul>
 <div style="text-align:center;">
-<img src="/.com//15.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 60%; height: auto;">
+<img src="15.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 60%; height: auto;">
 </div>
 
 
@@ -601,7 +601,7 @@
 <li>信息掩蔽，共享数据只能被管程内的过程访问</li>
 </ol>
 <div style="text-align:center;">
-<img src="/.com//16.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
+<img src="16.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
 </div>
 
 
@@ -619,14 +619,14 @@
 <li><strong>循环等待条件</strong>：存在共享资源的循环等待链</li>
 </ol>
 <div style="text-align:center;">
-<img src="/.com//17.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
+<img src="17.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
 </div>
 
 <p><strong>死锁预防策略（程序运行之前）</strong>：</p>
 <ul>
 <li><p><strong>破坏互斥条件</strong>：将互斥访问的资源改为同时共享访问；独占锁改为共享锁；不是所有资源都能改为可共享</p>
 <div style="text-align:center;">
-<img src="/.com//18.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
+<img src="18.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
 </div>
 </li>
 <li><p><strong>破坏不剥夺条件</strong>：请求新资源不满足时必须释放已有资源；由OS协助强制剥夺某进程持有的资源；<code>缺点：实现复杂，代价高，可能导致原进程任务无法执行</code></p>
@@ -647,7 +647,7 @@
 <ul>
 <li><strong>数据结构</strong>：资源分配图</li>
 <li><strong>死锁定理</strong>：当且仅当资源分配图是完全不可简化的；简化思路：找到既不是孤点又不阻塞的进程，去除其入边和出边<div style="text-align:center;">
-<img src="/.com//19.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
+<img src="19.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
 </div></li>
 </ul>
 </li>
@@ -657,14 +657,14 @@
 <hr>
 <h2 id="三、内存管理"><a href="#三、内存管理" class="headerlink" title="三、内存管理"></a>三、内存管理</h2><h3 id="3-1-内存管理"><a href="#3-1-内存管理" class="headerlink" title="3.1 内存管理"></a>3.1 内存管理</h3><h4 id="3-1-1-存储器的多层结构"><a href="#3-1-1-存储器的多层结构" class="headerlink" title="3.1.1 存储器的多层结构"></a>3.1.1 存储器的多层结构</h4><p>1.寄存器；2.高速缓存（单独一个固件）；3.主存储器（内存条）；4.硬盘缓存（交换区）；5.固定磁盘（固态硬盘）；6.可移动存储介质(U盘)</p>
 <div style="text-align:center;">
-<img src="/.com//20.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
+<img src="20.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
 </div>
 
 <h4 id="3-1-2-进程运行的基本原理"><a href="#3-1-2-进程运行的基本原理" class="headerlink" title="3.1.2 进程运行的基本原理"></a>3.1.2 进程运行的基本原理</h4><ol>
 <li>编译：代码编译成机器可以看懂的语言</li>
 <li>链接：底层的库和代码整合一起</li>
 <li>装入：把装入模块加载到内存<div style="text-align:center;">
-<img src="/.com//21.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 70%; height: auto;">
+<img src="21.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 70%; height: auto;">
 </div></li>
 </ol>
 <p><strong>程序的链接</strong>：</p>
@@ -697,13 +697,13 @@
 </ul>
 <p><strong>动态分区分配</strong>：根据进程的大小进行分配</p>
 <div style="text-align:center;">
-<img src="/.com//22.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
+<img src="22.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
 </div>
 
 <ul>
 <li><p><strong>如何记录内存的使用情况？</strong>：设置空闲分区表，记录空闲位置</p>
 <div style="text-align:center;">
-<img src="/.com//23.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
+<img src="23.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
 </div>
 </li>
 <li><p><strong>选择哪个分区分配给新进程？</strong>：</p>
@@ -712,7 +712,7 @@
 <li><strong>最佳适应算法</strong>：优先选择最小空闲空间</li>
 <li><strong>最坏适应算法</strong>：优先使用最大连续空间</li>
 <li><strong>临近适应算法</strong>：从上次查找处向后查找<div style="text-align:center;">
-<img src="/.com//24.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 60%; height: auto;">
+<img src="24.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 60%; height: auto;">
 </div></li>
 </ol>
 </li>
@@ -731,7 +731,7 @@
 </li>
 <li><p><strong>映射方式</strong>：页表；逻辑地址 -&gt; 物理地址空间；具体实现依赖<code>基本地址变换机构（硬件支持）</code></p>
 <div style="text-align:center;">
-<img src="/.com//25.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
+<img src="25.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 40%; height: auto;">
 </div>
 </li>
 <li><p><strong>基本地址变换机构</strong>：</p>
@@ -747,7 +747,7 @@
 <li><code>原因</code>：对内存中做一次运算需要访问两次内存，效率较低（一次读页表，一次读操作地址）</li>
 <li><code>方案</code>：将部分慢表放入<code>高速缓存区</code>区中，CPU直接读取高速缓存区；</li>
 <li>慢表是一维数组，因为连续；<code>快表是二维数据数组</code>；根据局部性原则，将进程中之前访问过的地址放入快表，不能完全覆盖，缺失部分需要访问慢表<div style="text-align:center;">
-<img src="/.com//26.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
+<img src="26.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
 </div></li>
 </ul>
 </li>
@@ -755,10 +755,10 @@
 <ul>
 <li><code>原因</code>：32位机器，前20位为页号，最多可有1M的条目，一个完整页表需要占据空间4MB,空间消耗较大。</li>
 <li><code>方案</code>：分成多级页表，可以不使用连续内存；<div style="text-align:center;">
-<img src="/.com//27.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
+<img src="27.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
 </div>
 <div style="text-align:center;">
-<img src="/.com//28.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
+<img src="28.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
 </div></li>
 </ul>
 </li>
@@ -767,7 +767,7 @@
 <ul>
 <li><p><strong>动机</strong>：连续地址不好管理，将进程按照一定规则划分成多个模块，编译器完成这一过程。</p>
 <div style="text-align:center;">
-<img src="/.com//29.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
+<img src="29.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
 </div>
 </li>
 <li><p>段是逻辑单位的划分，页是对物理物理单位的划分；页表是一维，段表是二维；段表一般比较小，直接放入寄存器中</p>
@@ -804,7 +804,7 @@
 </li>
 </ul>
 <div style="text-align:center;">
-<img src="/.com//30.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
+<img src="30.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
 </div>
 
 <h3 id="3-2-虚拟内存管理"><a href="#3-2-虚拟内存管理" class="headerlink" title="3.2 虚拟内存管理"></a>3.2 虚拟内存管理</h3><h4 id="3-2-1-基本概念"><a href="#3-2-1-基本概念" class="headerlink" title="3.2.1 基本概念"></a>3.2.1 基本概念</h4><p><strong>概念</strong>：外存+内存之和；具有请求调入和置换功能，从逻辑上对内存容量加以扩充的一种存储器系统</p>
@@ -819,7 +819,7 @@
 <ul>
 <li><p><strong>页表机制</strong>：状态位（是否调入内存）；访问字段（访问次数）；修改位（是否修改）；外存地址</p>
 <div style="text-align:center;">
-<img src="/.com//31.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
+<img src="31.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
 </div>
 </li>
 <li><p><strong>缺页中断机制</strong>：内中断</p>
@@ -842,7 +842,7 @@
 <li><strong>改进型时钟置换算法</strong>：（访问位，修改位），第一轮找（0，0），第二轮找（0，1），并把修改访问位为0，第三轮找（0，0），第四轮找（0，1）；</li>
 </ul>
 <div style="text-align:center;">
-<img src="/.com//32.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
+<img src="32.png" alt="avatar" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto;">
 </div>
 
 <p><strong>页面分配策略</strong>：</p>
